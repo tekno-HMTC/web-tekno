@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/oprek/hasil', function () {
+    return view('welcome');
+});
