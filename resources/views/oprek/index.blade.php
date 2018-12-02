@@ -2,6 +2,10 @@
 
 @section('title', 'Oprek')
 
+@section('css')
+<link rel="stylesheet" href="{{ asset('css/oprek.css') }}">
+@endsection
+
 @section('body')
 <div class="position-ref full-height">
     @if (Route::has('login'))

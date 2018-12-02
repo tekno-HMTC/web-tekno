@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('homepage.index');
 });
 
 Route::get('/oprek/daftar', function () {
