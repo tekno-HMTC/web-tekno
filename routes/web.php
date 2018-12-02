@@ -19,8 +19,4 @@ Route::get('/oprek/daftar', function () {
     return view('oprek.index');
 });
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
 Route::post('FormOprec','FormWebOprecController@store');
