@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/oprek/daftar', function () {
+    return view('oprek.index');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

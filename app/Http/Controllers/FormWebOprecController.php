@@ -34,34 +34,46 @@ class FormWebOprecController extends Controller
      */
     public function store(Request $request)
     {
-      $this->validate($request,[
-        'nama' => 'required',
-        'nrp' => 'required',
-        'pilihan1' => 'required',
-        'alasanPilihan1' => 'required'
-      ]);
+        $this->validate($request, [
+            'nama' => 'required',
+            'nrp' => 'required',
+            'pilihan_satu' => 'required',
+            'alasan_pilihan_satu' => 'required',
+            "file_foto" => "required|image|mimes:jpeg,png,gif,webp|max:2048",
+            "file_cv" => "required|mimes:pdf|max:10000",
+            "file_mbti" => "required|mimes:pdf|max:10000"
+        ]);
 
-      if ($request->input('pilihan1') == $request->input('pilihan2')) {
-        return redirect('/')->with('error','Pilihan 1 dan 2 tidak boleh sama');
-      }
-      if ($request->input('pilihan1') == $request->input('pilihan3')) {
-        return redirect('/')->with('error','Pilihan 2 dan 3 tidak boleh sama');
-      }
-      if ($request->input('pilihan2') == $request->input('pilihan3') && $request->input('pilihan3') != null) {
-        return redirect('/')->with('error','Pilihan 2 dan 3 tidak boleh sama');
-      }
-      $pendaftar = new Pendaftar;
-      $pendaftar->nama = $request->input('nama');
-      $pendaftar->nrp = $request->input('nrp');
-      $pendaftar->pilihan1 = $request->input('pilihan1');
-      $pendaftar->alasanPilihan1 = $request->input('alasanPilihan1');
-      $pendaftar->pilihan2 = $request->input('pilihan2');
-      $pendaftar->alasanPilihan2 = $request->input('alasanPilihan2');
-      $pendaftar->pilihan3 = $request->input('pilihan3');
-      $pendaftar->alasanPilihan3 = $request->input('alasanPilihan3');
-      $pendaftar->save();
+        if ($request->input('pilihan_satu') == $request->input('pilihan_dua')) {
+            return redirect('/')->with('error','Pilihan 1 dan 2 tidak boleh sama');
+        }
 
-      return redirect('/')->with('success','Terima Kasih telah Mendaftar');
+        if ($request->input('pilihan_satu') == $request->input('pilihan_tiga')) {
+            return redirect('/')->with('error','Pilihan 2 dan 3 tidak boleh sama');
+         }
+      
+        if ($request->input('pilihan_dua') == $request->input('pilihan_tiga') && $request->input('pilihan_tiga') != null) {
+            return redirect('/')->with('error','Pilihan 2 dan 3 tidak boleh sama');
+        }
+
+
+
+        $pendaftar = new Pendaftar;
+        $pendaftar->nama = $request->input('nama');
+        $pendaftar->nrp = $request->input('nrp');
+        $pendaftar->pilihan_satu = $request->input('pilihan_satu');
+        $pendaftar->alasan_pilihan_satu = $request->input('alasan_pilihan_satu');
+        $pendaftar->pilihan_dua = $request->input('pilihan_dua');
+        $pendaftar->alasan_pilihan_dua = $request->input('alasan_pilihan_dua');
+        $pendaftar->pilihan_tiga = $request->input('pilihan_tiga');
+        $pendaftar->alasan_pilihan_tiga = $request->input('alasan_pilihan_tiga');
+        $pendaftar->file_foto = $request->file('file_foto')->store('public/files');
+        $pendaftar->file_cv = $request->file('file_cv')->store('public/files');
+        $pendaftar->file_mbti = $request->file('file_mbti')->store('public/files');
+
+        $pendaftar->save();
+
+        return redirect('/oprek/daftar')->with('success','Terima Kasih telah Mendaftar');
     }
 
     /**

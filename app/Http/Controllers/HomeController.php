@@ -31,9 +31,9 @@ class HomeController extends Controller
       $rows2 = array();
       $rows3 = array();
       foreach ($userPermissions as $userPermission) {
-        $datas1 = DB::table('pendaftars')->where('pilihan1',$userPermission->idDepartemen)->get();
-        $datas2 = DB::table('pendaftars')->where('pilihan2',$userPermission->idDepartemen)->get();
-        $datas3 = DB::table('pendaftars')->where('pilihan3',$userPermission->idDepartemen)->get();
+        $datas1 = DB::table('pendaftar')->where('pilihan_satu',$userPermission->idDepartemen)->get();
+        $datas2 = DB::table('pendaftar')->where('pilihan_dua',$userPermission->idDepartemen)->get();
+        $datas3 = DB::table('pendaftar')->where('pilihan_tiga',$userPermission->idDepartemen)->get();
         foreach ($datas1 as $data1) {
             array_push($rows1,$data1);
         }
