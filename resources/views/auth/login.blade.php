@@ -1,67 +1,114 @@
-@extends('layouts.app')
+@extends('master')
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+@section('title', 'Login - PH Only')
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
+@section('css')
+<style>
+    html {
+        height: 100%;
+    }
 
-                        <div class="form-group row">
-                            <label for="email" class="col-sm-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+    body {
+        background-image: url('https://gsculerlor.s-ul.eu/fPdhqUjy');
+        min-height: 100%;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
 
-                            <div class="col-md-6">
-                                {{-- <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus> --}}
-                                <input id="email" type="text" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
-                                @if ($errors->has('email'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
+    .display-middle {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%)
+    }
 
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+    .display-below-middle {
+        position: absolute;
+        top: 75%;
+        left: 50%;
+        transform: translate(-75%, -50%);
+        -ms-transform: translate(-75%, -50%)
+    }
 
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+    .padding-large {
+        padding: 12px 24px !important;
+    }
 
-                                @if ($errors->has('password'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
+    .padding-not-large {
+        padding: 6px 12px !important;
+    }
 
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+    .black-background {
+        color: #fff !important;
+        background-color: #000a12 !important;
+    }
 
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
+    .white-background {
+        color: #000 !important;
+        background-color: #fff !important;
+    }
 
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+    .wide {
+        letter-spacing: 4px
+    }
+</style>
+<link rel="stylesheet" href="{{ asset('css/oprek.css') }}">
+@endsection
+
+@section('body')
+<div class="container-fluid" id="home">
+    <div class="display-middle" style="min-width: 30%;">
+        <div style="display: inline-block;">
+            <span class="padding-large black-background wide float-left" style="font-size: 24px; margin-right: 16px;">LOGIN</span>
+        </div>
+        <div style="display: block;">
+            <div class="float-left" style="height: 16px; width: 16px; background-color: #ffffff;"></div>
+            <div class="white-background padding-large">
+                <form action="/LoginPH" method="post">
+                    @csrf
+                    <div class="form-group ">
+                        <label>Departemen</label>
+                        <input name="departemen" type="text" class="form-control" required>
+                        <small id="emailHelp" class="form-text text-muted">Departemen anda</small>
+                    </div>
+                    <div class="form-group ">
+                        <label>Password</label>
+                        <input name="password" type="password" class="form-control" required>
+                        <small id="emailHelp" class="form-text text-muted">Password departemen anda</small>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-md btn-primary">Login</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
 </div>
+@endsection
+
+@extends('master')
+
+@section('title', 'Hasil Pendaftaran')
+
+@section('css')
+<link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css" rel="stylesheet">
+
+<style>
+    .padding-large {
+        padding: 6px 12px !important;
+    }
+
+    .black-background {
+        color: #fff !important;
+        background-color: #000a12 !important;
+    }
+
+    .wide {
+        letter-spacing: 2px
+    }
+</style>
 @endsection

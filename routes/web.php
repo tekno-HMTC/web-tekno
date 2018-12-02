@@ -12,11 +12,16 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('homepage.index');
 });
 
-Auth::routes();
+Route::get('/login', 'HomeController@login');
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/oprek/daftar', function () 
+{
+    return view('oprek.index');
+});
+Route::get('/oprek/hasil', 'FormWebOprecController@showResult');
 
 Route::post('FormOprec','FormWebOprecController@store');
+Route::post('LoginPH','HomeController@loginPost');
