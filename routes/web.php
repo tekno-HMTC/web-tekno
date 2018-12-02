@@ -15,8 +15,13 @@ Route::get('/', function () {
     return view('homepage.index');
 });
 
-Route::get('/oprek/daftar', function () {
+Route::get('/login', 'HomeController@login');
+
+Route::get('/oprek/daftar', function () 
+{
     return view('oprek.index');
 });
+Route::get('/oprek/hasil', 'FormWebOprecController@showResult');
 
 Route::post('FormOprec','FormWebOprecController@store');
+Route::post('LoginPH','HomeController@loginPost');

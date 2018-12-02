@@ -1,6 +1,6 @@
-@extends('layout.app')
+@extends('master')
 
-@section('content')
+@section('body')
 <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css" rel="stylesheet">
 <div class="container">
@@ -46,7 +46,7 @@
                                       <td>{{$row->nama}}</td>
                                       <td>{{$row->nrp}}</td>
                                       <td>1</td>
-                                      <td>{{$row->alasanPilihan1}}</td>
+                                      <td>{{$row->alasan_pilihan_satu}}</td>
                                   </tr>
                                 @endforeach
                                 @foreach ($rows['rows2'] as $row)
@@ -54,7 +54,7 @@
                                       <td>{{$row->nama}}</td>
                                       <td>{{$row->nrp}}</td>
                                       <td>2</td>
-                                      <td>{{$row->alasanPilihan2}}</td>
+                                      <td>{{$row->alasan_pilihan_dua}}</td>
                                   </tr>
                                 @endforeach
                                 @foreach ($rows['rows3'] as $row)
@@ -62,7 +62,7 @@
                                       <td>{{$row->nama}}</td>
                                       <td>{{$row->nrp}}</td>
                                       <td>3</td>
-                                      <td>{{$row->alasanPilihan2}}</td>
+                                      <td>{{$row->alasan_pilihan_tiga}}</td>
                                   </tr>
                                 @endforeach
                               @endif

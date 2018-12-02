@@ -5,51 +5,44 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
+use App\PengurusHarian;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
+    public function index() {
+        if(!Session::get('login')) {
+            return redirect('login')->with('alert', 'Ea');
+        }
+        else {
+            return view('oprek/hasil');
+        }
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-      $userid =Auth::check()? Auth::user()-> id : null;
-      $userPermissions = DB::table('accessuser')->where('idUser',$userid)->get();
-      $rows1 = array();
-      $rows2 = array();
-      $rows3 = array();
-      foreach ($userPermissions as $userPermission) {
-        $datas1 = DB::table('pendaftar')->where('pilihan_satu',$userPermission->idDepartemen)->get();
-        $datas2 = DB::table('pendaftar')->where('pilihan_dua',$userPermission->idDepartemen)->get();
-        $datas3 = DB::table('pendaftar')->where('pilihan_tiga',$userPermission->idDepartemen)->get();
-        foreach ($datas1 as $data1) {
-            array_push($rows1,$data1);
+    public function login() {
+        return view('auth.login');
+    }
+
+    public function loginPost(Request $request) {
+        $departemen = $request->departemen;
+        $password = $request->password;
+
+        $data = PengurusHarian::where('departemen', $departemen)->first();
+
+        if($data != null && $data->count() > 0){
+            if($password == $data->password){
+                Session::put('id', $data->id);
+                Session::put('departemen', $data->departemen);
+                Session::put('login', TRUE);
+
+                return redirect('oprek/hasil');
+            }
+            else {
+                return redirect('login')->with('alert','Invalid kredensial');
+            }
         }
-        foreach ($datas2 as $data2) {
-            array_push($rows2,$data2);
+        else {
+            return redirect('login')->with('alert','Invalid kredensial');
         }
-        foreach ($datas3 as $data3) {
-            array_push($rows3,$data3);
-        }
-      }
-      $rows = [
-        'rows1' => $rows1,
-        'rows2' => $rows2,
-        'rows3' => $rows3
-      ];
-      // return $datas1;
-      return view('home')->with('rows',$rows);
     }
 }
