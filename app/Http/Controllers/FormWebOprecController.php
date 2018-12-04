@@ -98,17 +98,27 @@ class FormWebOprecController extends Controller
         {
             $departemenID = Session::get('id');
 
-            $pendaftar_pilihan_satu = DB::table('pendaftar')->where('pilihan_satu', $departemenID)->get();
-            $pendaftar_pilihan_dua = DB::table('pendaftar')->where('pilihan_dua', $departemenID)->get();
-            $pendaftar_pilihan_tiga = DB::table('pendaftar')->where('pilihan_tiga', $departemenID)->get();
+            if ($departemenID != 10) {
+                $pendaftar_pilihan_satu = DB::table('pendaftar')->where('pilihan_satu', $departemenID)->get();
+                $pendaftar_pilihan_dua = DB::table('pendaftar')->where('pilihan_dua', $departemenID)->get();
+                $pendaftar_pilihan_tiga = DB::table('pendaftar')->where('pilihan_tiga', $departemenID)->get();
+    
+                $rows = [
+                    'rows1' => $pendaftar_pilihan_satu,
+                    'rows2' => $pendaftar_pilihan_dua,
+                    'rows3' => $pendaftar_pilihan_tiga
+                  ];
+    
+                return view('oprek.home')->with('rows', $rows);
+            } else {
+                $pendaftar_total = DB::table('pendaftar')->get();
 
-            $rows = [
-                'rows1' => $pendaftar_pilihan_satu,
-                'rows2' => $pendaftar_pilihan_dua,
-                'rows3' => $pendaftar_pilihan_tiga
-              ];
+                $rows = [
+                    'rows1' => $pendaftar_total
+                ];
 
-            return view('oprek.home')->with('rows', $rows);
+                return view('oprek.homekhususnondep')->with('rows', $rows);
+            }
         }
         else
         {

@@ -1,5 +1,7 @@
 <?php
 
+use function foo\func;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,6 +23,12 @@ Route::get('/oprek/daftar', function ()
 {
     return view('oprek.index');
 });
+
+Route::get('/oprek', function () 
+{
+    return view();
+});
+
 Route::get('/oprek/hasil', 'FormWebOprecController@showResult');
 
 Route::post('FormOprec','FormWebOprecController@store');

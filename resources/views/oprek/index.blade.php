@@ -21,7 +21,7 @@
         *{border: 1px #000 solid}
     </style> --}}
     <div class="content" style="padding-top: 80px">
-        <h1 class="display-4">Subscribe 2 PewDiePie</h1>
+        <h1 class="display-4">hehe</h1>
         <div class="container" style="padding-top: 40px; padding-bottom: 40px;">
             @include('layout.message')
             <div class="justify-content-md-center">
@@ -141,6 +141,11 @@
                                 <small id="emailHelp" class="text-muted">Format file .pdf</small>
                                 <input type="file" name="file_mbti">
                                 <span class="help-block text-danger">{{ $errors->first('file_mbti') }}</span>
+                            </div>
+                            <div class="form-group ">
+                                <label>Link Post Line</label>
+                                <input name="post_line" type="text" class="form-control" required>
+                                <small id="emailHelp" class="form-text text-muted">Post harus public</small>
                             </div>
                             <div class="form-group mb-0">
                                 <button type="submit" class="btn btn-primary" style="width: 100%;">
