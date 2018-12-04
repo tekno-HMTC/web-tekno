@@ -88,6 +88,9 @@
                             <a href="{{ Storage::url($row->file_foto) }}" class="btn btn-secondary">Foto</a>
                             <a href="{{ Storage::url($row->file_cv) }}" class="btn btn-secondary">CV</a>
                             <a href="{{ Storage::url($row->file_mbti) }}" class="btn btn-secondary">MBTI</a>
+                            @if ($row->portofolio != null)
+                            <a href="{{ Storage::url($row->portofolio) }}" class="btn btn-secondary">Portofolio</a>
+                            @endif
                         </td>
                     </tr>
                     @endforeach
@@ -120,6 +123,9 @@
                             <a href="{{ Storage::url($row->file_foto) }}" class="btn btn-secondary">Foto</a>
                             <a href="{{ Storage::url($row->file_cv) }}" class="btn btn-secondary">CV</a>
                             <a href="{{ Storage::url($row->file_mbti) }}" class="btn btn-secondary">MBTI</a>
+                            @if ($row->portofolio != null)
+                            <a href="{{ Storage::url($row->portofolio) }}" class="btn btn-secondary">Portofolio</a>
+                            @endif
                         </td>
                     </tr>
                     @endforeach
@@ -152,6 +158,9 @@
                             <a href="{{ Storage::url($row->file_foto) }}" class="btn btn-secondary">Foto</a>
                             <a href="{{ Storage::url($row->file_cv) }}" class="btn btn-secondary">CV</a>
                             <a href="{{ Storage::url($row->file_mbti) }}" class="btn btn-secondary">MBTI</a>
+                            @if ($row->portofolio != null)
+                            <a href="{{ Storage::url($row->portofolio) }}" class="btn btn-secondary">Portofolio</a>
+                            @endif
                         </td>
                     </tr>
                     @endforeach

@@ -42,9 +42,12 @@ class FormWebOprecController extends Controller
             'nrp' => 'required',
             'pilihan_satu' => 'required',
             'alasan_pilihan_satu' => 'required',
-            "file_foto" => "required|image|mimes:jpeg,png,gif,webp|max:2048",
-            "file_cv" => "required|mimes:pdf|max:10000",
-            "file_mbti" => "required|mimes:pdf|max:10000"
+            'file_foto' => 'required|image|mimes:jpeg,png,gif,webp|max:2048',
+            'file_cv' => 'required|mimes:pdf|max:10000',
+            'file_mbti' => 'required|mimes:pdf|max:10000',
+            'post_line' => 'required',
+            'portofolio' => 'mimes:zip|max:10000',
+
         ]);
 
         if ($request->input('pilihan_satu') == $request->input('pilihan_dua')) {
@@ -73,6 +76,13 @@ class FormWebOprecController extends Controller
         $pendaftar->file_foto = $request->file('file_foto')->store('public/files');
         $pendaftar->file_cv = $request->file('file_cv')->store('public/files');
         $pendaftar->file_mbti = $request->file('file_mbti')->store('public/files');
+        $pendaftar->post_line = $request->input('post_line');
+        
+        if ($request->file('portofolio') != null) {
+            $pendaftar->portofolio = $request->file('portofolio')->store('public/files');
+        } else {
+            $pendaftar->portofolio = null;
+        }
 
         $pendaftar->save();
 
