@@ -170,18 +170,24 @@
     $('#selectPilihan1').on('change', function() {
         if ($(this).val() == '6') {
             $('#portofolio').show();
+        } else {
+            $('#portofolio').hide();
         }
     })
 
     $('#selectPilihan2').on('change', function() {
         if ($(this).val() == '6') {
             $('#portofolio').show();
+        } else {
+            $('#portofolio').hide();
         }
     })
 
     $('#selectPilihan3').on('change', function() {
         if ($(this).val() == '6') {
             $('#portofolio').show();
+        } else {
+            $('#portofolio').hide();
         }
     })
 </script>
