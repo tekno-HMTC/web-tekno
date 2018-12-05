@@ -13,7 +13,7 @@
                         @endphp
                     </h3>
                     <p class="card-text">
-                        Total pendaftar {{ Session::get('departemen')}}
+                        Total pendaftar {{ Session::get('departemen') }}
                     </p>
                 </div>
             </div>
@@ -27,7 +27,7 @@
                         @endphp
                     </h3>
                     <p class="card-text">
-                        Total pendaftar {{ Session::get('departemen')}} pilihan 1
+                        Total pendaftar {{ Session::get('departemen') }} pilihan 1
                     </p>
                 </div>
             </div>
@@ -41,7 +41,7 @@
                         @endphp
                     </h3>
                     <p class="card-text">
-                        Total pendaftar {{ Session::get('departemen')}} pilihan 2
+                        Total pendaftar {{ Session::get('departemen') }} pilihan 2
                     </p>
                 </div>
             </div>
@@ -55,7 +55,7 @@
                         @endphp
                     </h3>
                     <p class="card-text">
-                        Total pendaftar {{ Session::get('departemen')}} pilihan 3
+                        Total pendaftar {{ Session::get('departemen') }} pilihan 3
                     </p>
                 </div>
             </div>
@@ -88,7 +88,7 @@
                             <a href="{{ Storage::url($row->file_foto) }}" class="btn btn-secondary">Foto</a>
                             <a href="{{ Storage::url($row->file_cv) }}" class="btn btn-secondary">CV</a>
                             <a href="{{ Storage::url($row->file_mbti) }}" class="btn btn-secondary">MBTI</a>
-                            @if ($row->portofolio != null)
+                            @if (Session::get('id') == 6)
                             <a href="{{ Storage::url($row->portofolio) }}" class="btn btn-secondary">Portofolio</a>
                             @endif
                         </td>
@@ -123,7 +123,7 @@
                             <a href="{{ Storage::url($row->file_foto) }}" class="btn btn-secondary">Foto</a>
                             <a href="{{ Storage::url($row->file_cv) }}" class="btn btn-secondary">CV</a>
                             <a href="{{ Storage::url($row->file_mbti) }}" class="btn btn-secondary">MBTI</a>
-                            @if ($row->portofolio != null)
+                            @if (Session::get('id') == 6)
                             <a href="{{ Storage::url($row->portofolio) }}" class="btn btn-secondary">Portofolio</a>
                             @endif
                         </td>
@@ -158,7 +158,7 @@
                             <a href="{{ Storage::url($row->file_foto) }}" class="btn btn-secondary">Foto</a>
                             <a href="{{ Storage::url($row->file_cv) }}" class="btn btn-secondary">CV</a>
                             <a href="{{ Storage::url($row->file_mbti) }}" class="btn btn-secondary">MBTI</a>
-                            @if ($row->portofolio != null)
+                            @if (Session::get('id') == 6)
                             <a href="{{ Storage::url($row->portofolio) }}" class="btn btn-secondary">Portofolio</a>
                             @endif
                         </td>

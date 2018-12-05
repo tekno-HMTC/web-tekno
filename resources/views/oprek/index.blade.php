@@ -176,26 +176,26 @@
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 
 <script>
-$('#selectPilihan').on('change', function() {
-    $('#portofolio').hide();
-})
+    $('#selectPilihan').on('change', function() {
+        $('#portofolio').hide();
+    })
 
-$('#selectPilihan1').on('change', function() {
-    if ($(this).val() == '6') {
-        $('#portofolio').show();
-    }
-})
+    $('#selectPilihan1').on('change', function() {
+        if ($(this).val() == '6') {
+            $('#portofolio').show();
+        }
+    })
 
-$('#selectPilihan2').on('change', function() {
-    if ($(this).val() == '6') {
-        $('#portofolio').show();
-    }
-})
+    $('#selectPilihan2').on('change', function() {
+        if ($(this).val() == '6') {
+            $('#portofolio').show();
+        }
+    })
 
-$('#selectPilihan3').on('change', function() {
-    if ($(this).val() == '6') {
-        $('#portofolio').show();
-    }
-})
+    $('#selectPilihan3').on('change', function() {
+        if ($(this).val() == '6') {
+            $('#portofolio').show();
+        }
+    })
 </script>
 @endsection
