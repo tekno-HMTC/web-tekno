@@ -9,12 +9,9 @@
     }
 
     body {
-        background-image: url('https://gsculerlor.s-ul.eu/fPdhqUjy');
         min-height: 100%;
-        background-attachment: fixed;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
+        margin: 0;
+        overflow: hidden;
     }
 
     .display-middle {
@@ -59,7 +56,7 @@
 @endsection
 
 @section('body')
-<div class="container-fluid" id="home">
+<div class="container-fluid" id="home" style="padding: 0;">
     <div class="display-middle" style="min-width: 30%;">
         <div style="display: inline-block;">
             <span class="padding-large black-background wide float-left" style="font-size: 24px; margin-right: 16px;">LOGIN</span>
@@ -89,26 +86,74 @@
 </div>
 @endsection
 
-@extends('master')
+@section('script')
+<script src="{{ asset('js/three.min.js') }}"></script>
+<script type="text/javascript">
+    function init() {
+        var scene = new THREE.Scene();
+        var camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
 
-@section('title', 'Hasil Pendaftaran')
+        var renderer = new THREE.WebGLRenderer();
+        renderer.setClearColor('#000000');
+        renderer.setSize(window.innerWidth, window.innerHeight);
 
-@section('css')
-<link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css" rel="stylesheet">
+        camera.position.x = 0;
+        camera.position.y = 0;
+        camera.position.z = 90;
 
-<style>
-    .padding-large {
-        padding: 6px 12px !important;
+        document.getElementById('home').appendChild(renderer.domElement);
+        window.addEventListener('resize', onWindowResize, false );
+
+        var geometry = new THREE.TorusKnotGeometry(30, 20, 10, 16);
+        var material = new THREE.MeshBasicMaterial({ 
+            vertexColors: THREE.VertexColors
+        });
+
+        function getRandomColor(index) {
+            var letters = '0123456789ABCDEF';
+            var color = '#';
+            for (var i = 0; i < 6; i++ ) {
+                color += letters[index % 16];
+            }
+
+            return color;
+        }
+
+        geometry.vertices.forEach(function (value, i) {
+            geometry.colors.push(new THREE.Color(getRandomColor(i)));
+        });
+
+        var materialCloud = new THREE.PointsMaterial({
+            size: 1,
+            vertexColors: THREE.VertexColors
+        });
+
+        var cloud = new THREE.Points(geometry, materialCloud);
+        cloud.sortParticles = true;
+        scene.add(cloud);
+        
+        //scene.add(wireframe);
+
+        render();
+
+        function render() {
+            cloud.rotation.x += 0.01;
+            cloud.rotation.y += 0.01;
+
+
+            requestAnimationFrame(render);
+            renderer.render(scene, camera);
+        }
+
+        function onWindowResize() {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        }
     }
 
-    .black-background {
-        color: #fff !important;
-        background-color: #000a12 !important;
-    }
+    window.onload = init;
 
-    .wide {
-        letter-spacing: 2px
-    }
-</style>
+</script>
 @endsection

@@ -7,21 +7,8 @@
 @endsection
 
 @section('body')
-<div class="position-ref full-height">
-    @if (Route::has('login'))
-    <div class="top-right links">
-        @auth
-        <a href="{{ url('/home') }}">Home</a>
-        @else
-        <a href="{{ route('login') }}">Login</a>
-        @endauth
-    </div>
-    @endif
-    {{-- <style>
-        *{border: 1px #000 solid}
-    </style> --}}
+<div class="position-ref full-height yha">
     <div class="content" style="padding-top: 80px">
-        <h1 class="display-4">hehe</h1>
         <div class="container" style="padding-top: 40px; padding-bottom: 40px;">
             @include('layout.message')
             <div class="justify-content-md-center">
