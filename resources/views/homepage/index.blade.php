@@ -9,12 +9,9 @@
     }
 
     body {
-        background-image: url('https://gsculerlor.s-ul.eu/fPdhqUjy');
         min-height: 100%;
-        background-attachment: fixed;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
+        margin: 0;
+        overflow: hidden;
     }
 
     .display-middle {
@@ -58,7 +55,7 @@
 @endsection
 
 @section('body')
-<div class="container-fluid" id="home">
+<div class="container-fluid" id="home" style="padding: 0;">
     <div class="display-middle">
         <div style="display: block;">
             <span class="padding-large black-background wide float-left" style="font-size: 24px; margin-right: 16px;">COMING SOON</span>
@@ -70,4 +67,76 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('script')
+<script src="{{ asset('js/three.min.js') }}"></script>
+<script type="text/javascript">
+    function init() {
+        var scene = new THREE.Scene();
+        var camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+
+        var renderer = new THREE.WebGLRenderer();
+        renderer.setClearColor('#000000');
+        renderer.setSize(window.innerWidth, window.innerHeight);
+
+        camera.position.x = 0;
+        camera.position.y = 0;
+        camera.position.z = 90;
+
+        document.getElementById('home').appendChild(renderer.domElement);
+        window.addEventListener('resize', onWindowResize, false );
+
+        var geometry = new THREE.TorusKnotGeometry(30, 20, 10, 16);
+        var material = new THREE.MeshBasicMaterial({ 
+            vertexColors: THREE.VertexColors
+        });
+
+        function getRandomColor(index) {
+            var letters = '0123456789ABCDEF';
+            var color = '#';
+            for (var i = 0; i < 6; i++ ) {
+                color += letters[index % 16];
+            }
+
+            return color;
+        }
+
+        geometry.vertices.forEach(function (value, i) {
+            geometry.colors.push(new THREE.Color(getRandomColor(i)));
+        });
+
+        var materialCloud = new THREE.PointsMaterial({
+            size: 1,
+            vertexColors: THREE.VertexColors
+        });
+
+        var cloud = new THREE.Points(geometry, materialCloud);
+        cloud.sortParticles = true;
+        scene.add(cloud);
+        
+        //scene.add(wireframe);
+
+        render();
+
+        function render() {
+            cloud.rotation.x += 0.01;
+            cloud.rotation.y += 0.01;
+
+
+            requestAnimationFrame(render);
+            renderer.render(scene, camera);
+        }
+
+        function onWindowResize() {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        }
+    }
+
+    window.onload = init;
+
+</script>
 @endsection

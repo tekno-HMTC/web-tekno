@@ -19,6 +19,8 @@ class Pendaftar extends Model
       'alasan_pilihan_tiga',
       'file_foto',
       'file_cv',
-      'file_mbti'
+      'file_mbti',
+      'post_line',
+      'portofolio'
   ];
 }

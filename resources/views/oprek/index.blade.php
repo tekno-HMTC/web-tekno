@@ -7,21 +7,8 @@
 @endsection
 
 @section('body')
-<div class="position-ref full-height">
-    @if (Route::has('login'))
-    <div class="top-right links">
-        @auth
-        <a href="{{ url('/home') }}">Home</a>
-        @else
-        <a href="{{ route('login') }}">Login</a>
-        @endauth
-    </div>
-    @endif
-    {{-- <style>
-        *{border: 1px #000 solid}
-    </style> --}}
+<div class="position-ref full-height yha">
     <div class="content" style="padding-top: 80px">
-        <h1 class="display-4">Subscribe 2 PewDiePie</h1>
         <div class="container" style="padding-top: 40px; padding-bottom: 40px;">
             @include('layout.message')
             <div class="justify-content-md-center">
@@ -124,6 +111,11 @@
                                         rows="3"></textarea>
                                 </div>
                             </div>
+                            <div class="form-group ">
+                                <label>Link Post Line</label>
+                                <input name="post_line" type="text" class="form-control" required>
+                                <small id="emailHelp" class="form-text text-muted">Post harus public</small>
+                            </div>
                             <div class="form-group">
                                 <label>Foto</label>
                                 <small id="emailHelp" class="text-muted">Format file .png atau .jpg</small>
@@ -142,6 +134,17 @@
                                 <input type="file" name="file_mbti">
                                 <span class="help-block text-danger">{{ $errors->first('file_mbti') }}</span>
                             </div>
+                            <div id="portofolio" style="display: none;">
+                                <div class="card bg-warning text-center" style="margin-bottom: 16px;">
+                                    <label class="bg-warning" style="margin:0px">Form Khusus Pilihan Medfo</label>
+                                </div>
+                                <div class="form-group">
+                                    <label>Portofolio</label>
+                                    <small id="emailHelp" class="text-muted">Format file .zip max 10MB</small>
+                                    <input type="file" name="portofolio">
+                                    <span class="help-block text-danger">{{ $errors->first('portofolio') }}</span>
+                                </div>
+                            </div>
                             <div class="form-group mb-0">
                                 <button type="submit" class="btn btn-primary" style="width: 100%;">
                                     {{ __('Submit') }}
@@ -154,4 +157,38 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('script')
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+
+<script>
+    $('#selectPilihan').on('change', function() {
+        $('#portofolio').hide();
+    })
+
+    $('#selectPilihan1').on('change', function() {
+        if ($(this).val() == '6') {
+            $('#portofolio').show();
+        } else {
+            $('#portofolio').hide();
+        }
+    })
+
+    $('#selectPilihan2').on('change', function() {
+        if ($(this).val() == '6') {
+            $('#portofolio').show();
+        } else {
+            $('#portofolio').hide();
+        }
+    })
+
+    $('#selectPilihan3').on('change', function() {
+        if ($(this).val() == '6') {
+            $('#portofolio').show();
+        } else {
+            $('#portofolio').hide();
+        }
+    })
+</script>
 @endsection

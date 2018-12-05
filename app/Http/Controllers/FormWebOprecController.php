@@ -42,9 +42,12 @@ class FormWebOprecController extends Controller
             'nrp' => 'required',
             'pilihan_satu' => 'required',
             'alasan_pilihan_satu' => 'required',
-            "file_foto" => "required|image|mimes:jpeg,png,gif,webp|max:2048",
-            "file_cv" => "required|mimes:pdf|max:10000",
-            "file_mbti" => "required|mimes:pdf|max:10000"
+            'file_foto' => 'required|image|mimes:jpeg,png,gif,webp|max:2048',
+            'file_cv' => 'required|mimes:pdf|max:10000',
+            'file_mbti' => 'required|mimes:pdf|max:10000',
+            'post_line' => 'required',
+            'portofolio' => 'mimes:zip|max:10000',
+
         ]);
 
         if ($request->input('pilihan_satu') == $request->input('pilihan_dua')) {
@@ -73,6 +76,13 @@ class FormWebOprecController extends Controller
         $pendaftar->file_foto = $request->file('file_foto')->store('public/files');
         $pendaftar->file_cv = $request->file('file_cv')->store('public/files');
         $pendaftar->file_mbti = $request->file('file_mbti')->store('public/files');
+        $pendaftar->post_line = $request->input('post_line');
+        
+        if ($request->file('portofolio') != null) {
+            $pendaftar->portofolio = $request->file('portofolio')->store('public/files');
+        } else {
+            $pendaftar->portofolio = null;
+        }
 
         $pendaftar->save();
 
@@ -98,17 +108,27 @@ class FormWebOprecController extends Controller
         {
             $departemenID = Session::get('id');
 
-            $pendaftar_pilihan_satu = DB::table('pendaftar')->where('pilihan_satu', $departemenID)->get();
-            $pendaftar_pilihan_dua = DB::table('pendaftar')->where('pilihan_dua', $departemenID)->get();
-            $pendaftar_pilihan_tiga = DB::table('pendaftar')->where('pilihan_tiga', $departemenID)->get();
+            if ($departemenID != 10) {
+                $pendaftar_pilihan_satu = DB::table('pendaftar')->where('pilihan_satu', $departemenID)->get();
+                $pendaftar_pilihan_dua = DB::table('pendaftar')->where('pilihan_dua', $departemenID)->get();
+                $pendaftar_pilihan_tiga = DB::table('pendaftar')->where('pilihan_tiga', $departemenID)->get();
+    
+                $rows = [
+                    'rows1' => $pendaftar_pilihan_satu,
+                    'rows2' => $pendaftar_pilihan_dua,
+                    'rows3' => $pendaftar_pilihan_tiga
+                  ];
+    
+                return view('oprek.home')->with('rows', $rows);
+            } else {
+                $pendaftar_total = DB::table('pendaftar')->get();
 
-            $rows = [
-                'rows1' => $pendaftar_pilihan_satu,
-                'rows2' => $pendaftar_pilihan_dua,
-                'rows3' => $pendaftar_pilihan_tiga
-              ];
+                $rows = [
+                    'rows1' => $pendaftar_total
+                ];
 
-            return view('oprek.home')->with('rows', $rows);
+                return view('oprek.homekhususnondep')->with('rows', $rows);
+            }
         }
         else
         {
