@@ -48,15 +48,15 @@
                                     <select name="pilihan_satu" class="select-departemen form-control mr-sm-2" id="selectPilihan1"
                                         onchange="tampilkanPenjelasan1()" required>
                                         <option value="" style="display:none">Pilih Salah Satu</option>
-                                        <option value="1">Tekno</option>
-                                        <option value="2">Dagri</option>
-                                        <option value="3">Hublu</option>
-                                        <option value="4">KDPM</option>
-                                        <option value="5">Pengpro</option>
-                                        <option value="6">Medfo</option>
-                                        <option value="7">Kesma</option>
-                                        <option value="8">Sosmas</option>
-                                        <option value="9">KWU</option>
+                                        <option value="1">Departemen Teknologi</option>
+                                        <option value="2">Departemen Dalam Negeri</option>
+                                        <option value="3">Departemen Hubungan Luar</option>
+                                        <option value="4">Departemen Kaderisasi dan Pemetaan</option>
+                                        <option value="5">Departemen Pengembangan Profesi</option>
+                                        <option value="6">Departemen Media Informasi</option>
+                                        <option value="7">Departemen Kesejahteraan Mahasiswa</option>
+                                        <option value="8">Departemen Sosial Masyarakat</option>
+                                        <option value="9">Biro Kajian Strategis</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
@@ -71,15 +71,15 @@
                                     <select name="pilihan_dua" class="select-departemen form-control mr-sm-2" id="selectPilihan2"
                                         onchange="tampilkanPenjelasan2()">
                                         <option value="" style="display:none">Pilih Salah Satu</option>
-                                        <option value="1">Tekno</option>
-                                        <option value="2">Dagri</option>
-                                        <option value="3">Hublu</option>
-                                        <option value="4">KDPM</option>
-                                        <option value="5">Pengpro</option>
-                                        <option value="6">Medfo</option>
-                                        <option value="7">Kesma</option>
-                                        <option value="8">Sosmas</option>
-                                        <option value="9">KWU</option>
+                                        <option value="1">Departemen Teknologi</option>
+                                        <option value="2">Departemen Dalam Negeri</option>
+                                        <option value="3">Departemen Hubungan Luar</option>
+                                        <option value="4">Departemen Kaderisasi dan Pemetaan</option>
+                                        <option value="5">Departemen Pengembangan Profesi</option>
+                                        <option value="6">Departemen Media Informasi</option>
+                                        <option value="7">Departemen Kesejahteraan Mahasiswa</option>
+                                        <option value="8">Departemen Sosial Masyarakat</option>
+                                        <option value="9">Biro Kajian Strategis</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
@@ -94,15 +94,15 @@
                                     <select name="pilihan_tiga" class="select-departemen form-control mr-sm-2" id="selectPilihan3"
                                         onchange="tampilkanPenjelasan3()">
                                         <option value="" style="display:none">Pilih Salah Satu</option>
-                                        <option value="1">Tekno</option>
-                                        <option value="2">Dagri</option>
-                                        <option value="3">Hublu</option>
-                                        <option value="4">KDPM</option>
-                                        <option value="5">Pengpro</option>
-                                        <option value="6">Medfo</option>
-                                        <option value="7">Kesma</option>
-                                        <option value="8">Sosmas</option>
-                                        <option value="9">KWU</option>
+                                        <option value="1">Departemen Teknologi</option>
+                                        <option value="2">Departemen Dalam Negeri</option>
+                                        <option value="3">Departemen Hubungan Luar</option>
+                                        <option value="4">Departemen Kaderisasi dan Pemetaan</option>
+                                        <option value="5">Departemen Pengembangan Profesi</option>
+                                        <option value="6">Departemen Media Informasi</option>
+                                        <option value="7">Departemen Kesejahteraan Mahasiswa</option>
+                                        <option value="8">Departemen Sosial Masyarakat</option>
+                                        <option value="9">Biro Kajian Strategis</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
@@ -118,29 +118,29 @@
                             </div>
                             <div class="form-group">
                                 <label>Foto</label>
-                                <small id="emailHelp" class="text-muted">Format file .png atau .jpg</small>
+                                <small id="emailHelp" class="text-muted">Format file .png atau .jpg dan foto formal</small>
                                 <input type="file" name="file_foto">
                                 <span class="help-block text-danger">{{ $errors->first('file_foto') }}</span>
                             </div>
                             <div class="form-group">
                                 <label>File CV</label>
-                                <small id="emailHelp" class="text-muted">Format file .pdf</small>
+                                <small id="emailHelp" class="text-muted">Format file .pdf max 2MB</small>
                                 <input type="file" name="file_cv">
                                 <span class="help-block text-danger">{{ $errors->first('file_cv') }}</span>
                             </div>
                             <div class="form-group">
                                 <label>File MBTI</label>
-                                <small id="emailHelp" class="text-muted">Format file .pdf</small>
+                                <small id="emailHelp" class="text-muted">Format file .pdf max 2MB</small>
                                 <input type="file" name="file_mbti">
                                 <span class="help-block text-danger">{{ $errors->first('file_mbti') }}</span>
                             </div>
                             <div id="portofolio" style="display: none;">
                                 <div class="card bg-warning text-center" style="margin-bottom: 16px;">
-                                    <label class="bg-warning" style="margin:0px">Form Khusus Pilihan Medfo</label>
+                                    <label class="bg-warning" style="margin:0px">Form Khusus Pilihan Departemen Media Informasi</label>
                                 </div>
                                 <div class="form-group">
                                     <label>Portofolio</label>
-                                    <small id="emailHelp" class="text-muted">Format file .zip max 10MB</small>
+                                    <small id="emailHelp" class="text-muted">Format file .zip max 2MB, jika lebih silahkan upload .txt berisi link file anda</small>
                                     <input type="file" name="portofolio">
                                     <span class="help-block text-danger">{{ $errors->first('portofolio') }}</span>
                                 </div>

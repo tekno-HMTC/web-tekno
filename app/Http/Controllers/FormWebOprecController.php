@@ -43,10 +43,10 @@ class FormWebOprecController extends Controller
             'pilihan_satu' => 'required',
             'alasan_pilihan_satu' => 'required',
             'file_foto' => 'required|image|mimes:jpeg,png,gif,webp|max:2048',
-            'file_cv' => 'required|mimes:pdf|max:10000',
-            'file_mbti' => 'required|mimes:pdf|max:10000',
+            'file_cv' => 'required|mimes:pdf|max:2048',
+            'file_mbti' => 'required|mimes:pdf|max:2048',
             'post_line' => 'required',
-            'portofolio' => 'mimes:zip|max:10000',
+            'portofolio' => 'mimes:zip,txt|max:2048',
 
         ]);
 

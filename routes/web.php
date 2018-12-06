@@ -26,7 +26,7 @@ Route::get('/oprek/daftar', function ()
 
 Route::get('/oprek', function () 
 {
-    return view();
+    return view('oprek.desc');
 });
 
 Route::get('/oprek/hasil', 'FormWebOprecController@showResult');
