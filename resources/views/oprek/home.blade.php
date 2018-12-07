@@ -107,6 +107,7 @@
                             <a href="{{ Storage::url($row->file_foto) }}" class="btn btn-secondary">Foto</a>
                             <a href="{{ Storage::url($row->file_cv) }}" class="btn btn-secondary">CV</a>
                             <a href="{{ Storage::url($row->file_mbti) }}" class="btn btn-secondary">MBTI</a>
+                            <a href="{{ Storage::url($row->file_transkrip) }}" class="btn btn-secondary">Transkrip</a>
                             <a href="{{ $row->post_line }}" class="btn btn-secondary">Post</a>
                             @if (Session::get('id') == 6)
                             <a href="{{ Storage::url($row->portofolio) }}" class="btn btn-secondary">Portofolio</a>
@@ -143,6 +144,7 @@
                             <a href="{{ Storage::url($row->file_foto) }}" class="btn btn-secondary">Foto</a>
                             <a href="{{ Storage::url($row->file_cv) }}" class="btn btn-secondary">CV</a>
                             <a href="{{ Storage::url($row->file_mbti) }}" class="btn btn-secondary">MBTI</a>
+                            <a href="{{ Storage::url($row->file_transkrip) }}" class="btn btn-secondary">Transkrip</a>
                             <a href="{{ $row->post_line }}" class="btn btn-secondary">Post</a>
                             @if (Session::get('id') == 6)
                             <a href="{{ Storage::url($row->portofolio) }}" class="btn btn-secondary">Portofolio</a>
@@ -179,6 +181,7 @@
                             <a href="{{ Storage::url($row->file_foto) }}" class="btn btn-secondary">Foto</a>
                             <a href="{{ Storage::url($row->file_cv) }}" class="btn btn-secondary">CV</a>
                             <a href="{{ Storage::url($row->file_mbti) }}" class="btn btn-secondary">MBTI</a>
+                            <a href="{{ Storage::url($row->file_transkrip) }}" class="btn btn-secondary">Transkrip</a>
                             <a href="{{ $row->post_line }}" class="btn btn-secondary">Post</a>
                             @if (Session::get('id') == 6)
                             <a href="{{ Storage::url($row->portofolio) }}" class="btn btn-secondary">Portofolio</a>

@@ -3,6 +3,7 @@
 @section('title', 'Oprek')
 
 @section('css')
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 <link rel="stylesheet" href="{{ asset('css/oprek.css') }}">
 @endsection
 
@@ -35,7 +36,7 @@
                                 <small id="emailHelp" class="form-text text-muted">Masukkan 4 angka belakang NRP</small>
                             </div>
                             <div class="card bg-warning text-center">
-                                <label class="bg-warning" style="margin:0px">Pilih Urut Berdasarkan Minat Pendaftar</label>
+                                <label class="bg-warning" style="margin:0px; color: white;">Pilih Urut Berdasarkan Minat Pendaftar</label>
                             </div>
                             <select class="form-control mr-sm-2" onchange="pindahTab()" id="selectPilihan" style="margin-top:8px">
                                 <option value="1">Pilihan 1</option>
@@ -59,6 +60,7 @@
                                         <option value="9">Biro Kajian Strategis</option>
                                     </select>
                                 </div>
+                                <p id="deskripsidepartemen1" style="font-size: 16px;"></p>
                                 <div class="form-group">
                                     <label>Alasan Memilih Departemen Pilihan Pertama</label>
                                     <textarea name="alasan_pilihan_satu" class="form-control" id="exampleFormControlTextarea1"
@@ -82,6 +84,7 @@
                                         <option value="9">Biro Kajian Strategis</option>
                                     </select>
                                 </div>
+                                <p id="deskripsidepartemen2" style="font-size: 16px;"></p>
                                 <div class="form-group">
                                     <label>Alasan Memilih Departemen Pilihan Kedua</label>
                                     <textarea name="alasan_pilihan_dua" class="form-control" id="exampleFormControlTextarea1"
@@ -105,6 +108,7 @@
                                         <option value="9">Biro Kajian Strategis</option>
                                     </select>
                                 </div>
+                                <p id="deskripsidepartemen3" style="font-size: 16px;"></p>
                                 <div class="form-group">
                                     <label>Alasan Memilih Departemen Pilihan Ketiga</label>
                                     <textarea name="alasan_pilihan_tiga" class="form-control" id="exampleFormControlTextarea1"
@@ -134,9 +138,15 @@
                                 <input type="file" name="file_mbti">
                                 <span class="help-block text-danger">{{ $errors->first('file_mbti') }}</span>
                             </div>
+                            <div class="form-group">
+                                <label>File Transkrip</label>
+                                <small id="emailHelp" class="text-muted">Format file .doc atau .docx max 2MB</small>
+                                <input type="file" name="file_transkrip">
+                                <span class="help-block text-danger">{{ $errors->first('file_transkrip') }}</span>
+                            </div>
                             <div id="portofolio" style="display: none;">
                                 <div class="card bg-warning text-center" style="margin-bottom: 16px;">
-                                    <label class="bg-warning" style="margin:0px">Form Khusus Pilihan Departemen Media Informasi</label>
+                                    <label class="bg-warning" style="margin:0px; color: white;">Form Khusus Pilihan Departemen Media Informasi</label>
                                 </div>
                                 <div class="form-group">
                                     <label>Portofolio</label>
@@ -154,6 +164,9 @@
                     </div>
                 </div>
             </div>
+            <div class="alert alert-dark" role="alert" style="margin-top: 8px;">
+               Masalah? <i class="fab fa-line"></i> gsculerlor <i class="fab fa-discord"></i> Ganen#0124 <i class="fab fa-github-square"></i> gsculerlor
+            </div>
         </div>
     </div>
 </div>
@@ -168,6 +181,24 @@
     })
 
     $('#selectPilihan1').on('change', function() {
+        if ($(this).val() == '1') {
+            $('#deskripsidepartemen1').text("Departemen Teknologi bertujuan untuk membangun komunitas yang inovatif dan memiliki semangat berkontribusi dalah pengembangan teknologi dan informasi khususnya di TC");
+        } else if ($(this).val() == '2') {
+            $('#deskripsidepartemen1').text("Departemen Dalam Negeri atau DAGRI adalah departemen yang menaungi anggota hmtc untuk menumbuhkan rasa peduli terhadap sesama sehingga tercipta suasana kekeluargaan dalam HMTC.");
+        } else if ($(this).val() == '3') {
+            $('#deskripsidepartemen1').text("Departemen Hubungan Luar adalah departemen yang menjadi jembatan di antara stakeholder-stakeholder HMTC seperti Ormawa ITS & Luar ITS, Perusahaan, Alumni,dan forum-forum Informatika di Indonesia, serta menyediakan informasi dan wadah mengenai jurusan Informatika ITS bagi teman-teman SMA/K/ Umum di seluruh Indonesia.");
+        } else if ($(this).val() == '4') {
+            $('#deskripsidepartemen1').text("KDPM atau Kaderisasi dan Pemetaan adalah departemen mulia yang bertanggung jawab atas pengembangan sumber daya manusia HMTC. KDPM mengurus langsung mahasiswa tahun pertama dalam proses adaptasi, penanaman nilai-nilai yang bermasyarakat, persiapan memasuki himpunan dan menjalankan fungsi pemetaan minat dan bakat.");
+        } else if ($(this).val() == '5') {
+            $('#deskripsidepartemen1').text("Departemen Pengembangan Profesi adalah salah satu departemen HMTC yang memfasilitasi warga HMTC di bidang softskill. Departemen ini ditujukan untuk mempersiapkan mahasiswa TC dalam memasuki dunia kerja. Departemen ini fokus pada pemgembangan mahasiswa tingkat 2, 3, dan 4.");
+        } else if ($(this).val() == '6') {
+            $('#deskripsidepartemen1').text("Departemen Media dan Informasi adalah ujung tombak HMTC dalam penyebaran informasi, serta sebagai wadah bagi mahasiswa informatika belajar dan menemukan hal baru dalam bidang media dan informasi");
+        } else if ($(this).val() == '7') {
+            $('#deskripsidepartemen1').text("");
+        } else if ($(this).val() == '8') {
+            $('#deskripsidepartemen1').text("");
+        } 
+
         if ($(this).val() == '6') {
             $('#portofolio').show();
         } else {
@@ -176,6 +207,24 @@
     })
 
     $('#selectPilihan2').on('change', function() {
+        if ($(this).val() == '1') {
+            $('#deskripsidepartemen2').text("Departemen Teknologi bertujuan untuk membangun komunitas yang inovatif dan memiliki semangat berkontribusi dalah pengembangan teknologi dan informasi khususnya di TC");
+        } else if ($(this).val() == '2') {
+            $('#deskripsidepartemen2').text("Departemen Dalam Negeri atau DAGRI adalah departemen yang menaungi anggota hmtc untuk menumbuhkan rasa peduli terhadap sesama sehingga tercipta suasana kekeluargaan dalam HMTC.");
+        } else if ($(this).val() == '3') {
+            $('#deskripsidepartemen2').text("Departemen Hubungan Luar adalah departemen yang menjadi jembatan di antara stakeholder-stakeholder HMTC seperti Ormawa ITS & Luar ITS, Perusahaan, Alumni,dan forum-forum Informatika di Indonesia, serta menyediakan informasi dan wadah mengenai jurusan Informatika ITS bagi teman-teman SMA/K/ Umum di seluruh Indonesia.");
+        } else if ($(this).val() == '4') {
+            $('#deskripsidepartemen2').text("KDPM atau Kaderisasi dan Pemetaan adalah departemen mulia yang bertanggung jawab atas pengembangan sumber daya manusia HMTC. KDPM mengurus langsung mahasiswa tahun pertama dalam proses adaptasi, penanaman nilai-nilai yang bermasyarakat, persiapan memasuki himpunan dan menjalankan fungsi pemetaan minat dan bakat.");
+        } else if ($(this).val() == '5') {
+            $('#deskripsidepartemen2').text("Departemen Pengembangan Profesi adalah salah satu departemen HMTC yang memfasilitasi warga HMTC di bidang softskill. Departemen ini ditujukan untuk mempersiapkan mahasiswa TC dalam memasuki dunia kerja. Departemen ini fokus pada pemgembangan mahasiswa tingkat 2, 3, dan 4.");
+        } else if ($(this).val() == '6') {
+            $('#deskripsidepartemen2').text("Departemen Media dan Informasi adalah ujung tombak HMTC dalam penyebaran informasi, serta sebagai wadah bagi mahasiswa informatika belajar dan menemukan hal baru dalam bidang media dan informasi");
+        } else if ($(this).val() == '7') {
+            $('#deskripsidepartemen2').text("");
+        } else if ($(this).val() == '8') {
+            $('#deskripsidepartemen2').text("");
+        } 
+
         if ($(this).val() == '6') {
             $('#portofolio').show();
         } else {
@@ -184,6 +233,24 @@
     })
 
     $('#selectPilihan3').on('change', function() {
+        if ($(this).val() == '1') {
+            $('#deskripsidepartemen3').text("Departemen Teknologi bertujuan untuk membangun komunitas yang inovatif dan memiliki semangat berkontribusi dalah pengembangan teknologi dan informasi khususnya di TC");
+        } else if ($(this).val() == '2') {
+            $('#deskripsidepartemen3').text("Departemen Dalam Negeri atau DAGRI adalah departemen yang menaungi anggota hmtc untuk menumbuhkan rasa peduli terhadap sesama sehingga tercipta suasana kekeluargaan dalam HMTC.");
+        } else if ($(this).val() == '3') {
+            $('#deskripsidepartemen3').text("Departemen Hubungan Luar adalah departemen yang menjadi jembatan di antara stakeholder-stakeholder HMTC seperti Ormawa ITS & Luar ITS, Perusahaan, Alumni,dan forum-forum Informatika di Indonesia, serta menyediakan informasi dan wadah mengenai jurusan Informatika ITS bagi teman-teman SMA/K/ Umum di seluruh Indonesia.");
+        } else if ($(this).val() == '4') {
+            $('#deskripsidepartemen3').text("KDPM atau Kaderisasi dan Pemetaan adalah departemen mulia yang bertanggung jawab atas pengembangan sumber daya manusia HMTC. KDPM mengurus langsung mahasiswa tahun pertama dalam proses adaptasi, penanaman nilai-nilai yang bermasyarakat, persiapan memasuki himpunan dan menjalankan fungsi pemetaan minat dan bakat.");
+        } else if ($(this).val() == '5') {
+            $('#deskripsidepartemen3').text("Departemen Pengembangan Profesi adalah salah satu departemen HMTC yang memfasilitasi warga HMTC di bidang softskill. Departemen ini ditujukan untuk mempersiapkan mahasiswa TC dalam memasuki dunia kerja. Departemen ini fokus pada pemgembangan mahasiswa tingkat 2, 3, dan 4.");
+        } else if ($(this).val() == '6') {
+            $('#deskripsidepartemen3').text("Departemen Media dan Informasi adalah ujung tombak HMTC dalam penyebaran informasi, serta sebagai wadah bagi mahasiswa informatika belajar dan menemukan hal baru dalam bidang media dan informasi");
+        } else if ($(this).val() == '7') {
+            $('#deskripsidepartemen3').text("");
+        } else if ($(this).val() == '8') {
+            $('#deskripsidepartemen3').text("");
+        } 
+
         if ($(this).val() == '6') {
             $('#portofolio').show();
         } else {
