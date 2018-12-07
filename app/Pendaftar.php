@@ -21,6 +21,7 @@ class Pendaftar extends Model
       'file_cv',
       'file_mbti',
       'post_line',
-      'portofolio'
+      'portofolio',
+      'file_transkrip'
   ];
 }

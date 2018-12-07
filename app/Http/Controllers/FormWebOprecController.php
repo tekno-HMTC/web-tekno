@@ -47,7 +47,7 @@ class FormWebOprecController extends Controller
             'file_mbti' => 'required|mimes:pdf|max:2048',
             'post_line' => 'required',
             'portofolio' => 'mimes:zip,txt|max:2048',
-
+            'file_transkrip.*' => 'required|mimes:doc,docx|max:2048'
         ]);
 
         if ($request->input('pilihan_satu') == $request->input('pilihan_dua')) {
@@ -77,6 +77,7 @@ class FormWebOprecController extends Controller
         $pendaftar->file_cv = $request->file('file_cv')->store('public/files');
         $pendaftar->file_mbti = $request->file('file_mbti')->store('public/files');
         $pendaftar->post_line = $request->input('post_line');
+        $pendaftar->file_transkrip = $request->file('file_transkrip')->store('public/files');
         
         if ($request->file('portofolio') != null) {
             $pendaftar->portofolio = $request->file('portofolio')->store('public/files');
@@ -86,7 +87,7 @@ class FormWebOprecController extends Controller
 
         $pendaftar->save();
 
-        return redirect('/oprek/daftar')->with('success','Terima Kasih telah Mendaftar');
+        return redirect('/oprek/daftar')->with('success','Hehe udah gitu aja sih :) Ditunggu kabar selanjutnya ya');
     }
 
     /**
