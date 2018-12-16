@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
 use App\Pendaftar;
+use App\PengurusHarian;
 use Excel;
 
 class FormWebOprecController extends Controller
@@ -83,6 +84,8 @@ class FormWebOprecController extends Controller
         $pendaftar->file_mbti = $request->file('file_mbti')->store('public/files');
         $pendaftar->post_line = $request->input('post_line');
         $pendaftar->file_transkrip = $request->file('file_transkrip')->store('public/files');
+        $pendaftar->status = false;
+        $pendaftar->departemen = 0;
         
         if ($request->file('portofolio') != null) {
             $pendaftar->portofolio = $request->file('portofolio')->store('public/files');
@@ -162,7 +165,11 @@ class FormWebOprecController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        DB::table('pendaftar')
+            ->where('nrp', $id)
+            ->update(['status' => 1, 'departemen' => Session::get('id')]);
+
+        return redirect('oprek/hasil');
     }
 
     /**

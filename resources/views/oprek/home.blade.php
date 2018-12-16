@@ -104,13 +104,20 @@
                         <td>{{ $row->nrp }}</td>
                         <td>{{ $row->alasan_pilihan_satu }}</td>
                         <td>
-                            <a href="{{ Storage::url($row->file_foto) }}" class="btn btn-secondary">Foto</a>
-                            <a href="{{ Storage::url($row->file_cv) }}" class="btn btn-secondary">CV</a>
-                            <a href="{{ Storage::url($row->file_mbti) }}" class="btn btn-secondary">MBTI</a>
-                            <a href="{{ Storage::url($row->file_transkrip) }}" class="btn btn-secondary">Transkrip</a>
-                            <a href="{{ $row->post_line }}" class="btn btn-secondary">Post</a>
-                            @if (Session::get('id') == 6)
-                            <a href="{{ Storage::url($row->portofolio) }}" class="btn btn-secondary">Portofolio</a>
+                            @if ($row->status == 0)
+                            <form class="text-left" id="Form" action="/Catch/{{ $row->nrp }}" method="post" enctype="multipart/form-data" 
+                                onsubmit="return confirm('Catch it?');">
+                                @csrf
+                                <div class="form-group mb-0">
+                                    <button type="submit" class="btn btn-danger" style="width: 100%;">
+                                        {{ __('Take it?') }}
+                                    </button>
+                                </div>
+                            </form>                                
+                            @else
+                            <div class="form-group mb-0">
+                                <button id="battleroyale" type="submit" class="btn btn-secondary" style="width: 100%;" disabled>{{$row->departemen}}</button>
+                            </div>
                             @endif
                         </td>
                     </tr>
@@ -141,13 +148,20 @@
                         <td>{{ $row->nrp }}</td>
                         <td>{{ $row->alasan_pilihan_dua }}</td>
                         <td>
-                            <a href="{{ Storage::url($row->file_foto) }}" class="btn btn-secondary">Foto</a>
-                            <a href="{{ Storage::url($row->file_cv) }}" class="btn btn-secondary">CV</a>
-                            <a href="{{ Storage::url($row->file_mbti) }}" class="btn btn-secondary">MBTI</a>
-                            <a href="{{ Storage::url($row->file_transkrip) }}" class="btn btn-secondary">Transkrip</a>
-                            <a href="{{ $row->post_line }}" class="btn btn-secondary">Post</a>
-                            @if (Session::get('id') == 6)
-                            <a href="{{ Storage::url($row->portofolio) }}" class="btn btn-secondary">Portofolio</a>
+                            @if ($row->status == 0)
+                            <form class="text-left" id="Form" action="/Catch/{{ $row->nrp }}" method="post" enctype="multipart/form-data" 
+                                onsubmit="return confirm('Catch it?');">
+                                @csrf
+                                <div class="form-group mb-0">
+                                    <button type="submit" class="btn btn-danger" style="width: 100%;">
+                                        {{ __('Take it?') }}
+                                    </button>
+                                </div>
+                            </form>                                
+                            @else
+                            <div class="form-group mb-0">
+                                <button id="battleroyale" type="submit" class="btn btn-secondary" style="width: 100%;" disabled>{{$row->departemen}}</button>
+                            </div>
                             @endif
                         </td>
                     </tr>
@@ -178,13 +192,20 @@
                         <td>{{ $row->nrp }}</td>
                         <td>{{ $row->alasan_pilihan_tiga }}</td>
                         <td>
-                            <a href="{{ Storage::url($row->file_foto) }}" class="btn btn-secondary">Foto</a>
-                            <a href="{{ Storage::url($row->file_cv) }}" class="btn btn-secondary">CV</a>
-                            <a href="{{ Storage::url($row->file_mbti) }}" class="btn btn-secondary">MBTI</a>
-                            <a href="{{ Storage::url($row->file_transkrip) }}" class="btn btn-secondary">Transkrip</a>
-                            <a href="{{ $row->post_line }}" class="btn btn-secondary">Post</a>
-                            @if (Session::get('id') == 6)
-                            <a href="{{ Storage::url($row->portofolio) }}" class="btn btn-secondary">Portofolio</a>
+                            @if ($row->status == 0)
+                            <form class="text-left" id="Form" action="/Catch/{{ $row->nrp }}" method="post" enctype="multipart/form-data" 
+                                onsubmit="return confirm('Catch it?');">
+                                @csrf
+                                <div class="form-group mb-0">
+                                    <button type="submit" class="btn btn-danger" style="width: 100%;">
+                                        {{ __('Take it?') }}
+                                    </button>
+                                </div>
+                            </form>                                
+                            @else
+                            <div class="form-group mb-0">
+                                <button id="battleroyale" type="submit" class="btn btn-secondary" style="width: 100%;" disabled>{{$row->departemen}}</button>
+                            </div>
                             @endif
                         </td>
                     </tr>
@@ -214,6 +235,41 @@
         $('#pilihan-3').DataTable();
     });
 
+    var dept = $('#battleroyale').text();
+    console.log(dept);
+    switch (dept) { 
+        case '1': 
+            $('#battleroyale').text("Taken by Tekno")
+            break;
+        case '2': 
+            $('#battleroyale').text("Taken by Dagri")
+            break;
+        case '3': 
+            $('#battleroyale').text("Taken by Hublu")
+            break;
+        case '4': 
+            $('#battleroyale').text("Taken by KDPM")
+            break;
+        case '5': 
+            $('#battleroyale').text("Taken by Pengpro")
+            break;
+        case '6': 
+            $('#battleroyale').text("Taken by Medfo")
+            break;
+        case '7': 
+            $('#battleroyale').text("Taken by Kesma")
+            break;
+        case '8': 
+            $('#battleroyale').text("Taken by Sosmas")
+            break;
+        case '9': 
+            $('#battleroyale').text("Taken by MB")
+            break;
+        case '10': 
+            $('#battleroyale').text("Taken by Kastrat")
+            break;
+    }
+    
 </script>
 
 @endsection

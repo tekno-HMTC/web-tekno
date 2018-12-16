@@ -22,6 +22,8 @@ class Pendaftar extends Model
       'file_mbti',
       'post_line',
       'portofolio',
-      'file_transkrip'
+      'file_transkrip',
+      'status',
+      'departemen'
   ];
 }

@@ -25,17 +25,14 @@ Route::get('/oprek/daftar', function ()
     //return view('oprek.index')
 });
 
-Route::get('/oprek', function () 
+Route::get('/oprek/test', function () 
 {
-    return view('oprek.desc');
+    return view('oprek.index');
 });
 
 Route::get('/oprek/hasil', 'FormWebOprecController@showResult');
 Route::get('/oprek/hasil/remove/{id}', 'FormWebOprecController@destroy');
 Route::get('/oprek/hasil/excel', 'FormWebOprecController@excel')->name('oprek.hasil.excel');
-
-Route::post('FormOprec','FormWebOprecController@store');
-Route::post('LoginPH','HomeController@loginPost');
 
 Route::get('storage/{filename}', function ($filename)
 {
@@ -58,3 +55,8 @@ Route::get('screening', function ()
 {
     return Redirect::to("files/JADWAL_SCREENING_CALON_STAFF_HMTC_1819.pdf");
 });
+
+Route::post('FormOprec','FormWebOprecController@store');
+Route::post('LoginPH','HomeController@loginPost');
+
+Route::post('Catch/{id}', 'FormWebOprecController@update');
