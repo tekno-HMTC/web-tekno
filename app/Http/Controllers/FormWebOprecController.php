@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
 use App\Pendaftar;
+use Excel;
 
 class FormWebOprecController extends Controller
 {
@@ -37,10 +38,13 @@ class FormWebOprecController extends Controller
      */
     public function store(Request $request)
     {
+        ini_set('max_execution_time', 0);
         $this->validate($request, [
             'nama' => 'required',
             'nrp' => 'required',
             'pilihan_satu' => 'required',
+            'pilihan_dua' => 'required',
+            'pilihan_tiga' => 'required',
             'alasan_pilihan_satu' => 'required',
             'file_foto' => 'required|image|mimes:jpeg,png,gif,webp|max:2048',
             'file_cv' => 'required|mimes:pdf|max:2048',
@@ -51,18 +55,19 @@ class FormWebOprecController extends Controller
         ]);
 
         if ($request->input('pilihan_satu') == $request->input('pilihan_dua')) {
-            return redirect('/')->with('error','Pilihan 1 dan 2 tidak boleh sama');
+            // return redirect('/')->with('error','Pilihan 1 dan 2 tidak boleh sama');
+            return redirect()->back()->with('error','Pilihan 1 dan 2 tidak boleh sama');
         }
 
         if ($request->input('pilihan_satu') == $request->input('pilihan_tiga')) {
-            return redirect('/')->with('error','Pilihan 2 dan 3 tidak boleh sama');
+            // return redirect('/')->with('error','Pilihan 2 dan 3 tidak boleh sama');
+            return redirect()->back()->with('error','Pilihan 2 dan 3 tidak boleh sama');
          }
       
         if ($request->input('pilihan_dua') == $request->input('pilihan_tiga') && $request->input('pilihan_tiga') != null) {
-            return redirect('/')->with('error','Pilihan 2 dan 3 tidak boleh sama');
+            // return redirect('/')->with('error','Pilihan 2 dan 3 tidak boleh sama');
+            return redirect()->back()->with('error','Pilihan 2 dan 3 tidak boleh sama');
         }
-
-
 
         $pendaftar = new Pendaftar;
         $pendaftar->nama = $request->input('nama');
@@ -109,7 +114,7 @@ class FormWebOprecController extends Controller
         {
             $departemenID = Session::get('id');
 
-            if ($departemenID != 10) {
+            if ($departemenID != 11) {
                 $pendaftar_pilihan_satu = DB::table('pendaftar')->where('pilihan_satu', $departemenID)->get();
                 $pendaftar_pilihan_dua = DB::table('pendaftar')->where('pilihan_dua', $departemenID)->get();
                 $pendaftar_pilihan_tiga = DB::table('pendaftar')->where('pilihan_tiga', $departemenID)->get();
@@ -168,6 +173,34 @@ class FormWebOprecController extends Controller
      */
     public function destroy($id)
     {
-        //
+        DB::table('pendaftar')->where('id', $id)->delete();
+
+        return redirect('oprek/hasil');
+    }
+
+    public function excel()
+    {
+        $data = DB::table('pendaftar')->orderBy('nrp', 'asc')->get()->toArray();
+        $array[] = array('nama', 'nrp', 'pilihan_satu', 'alasan_pilihan_satu', 'pilihan_dua', 'alasan_pilihan_dua', 'pilihan_tiga', 'alasan_pilihan_tiga');
+    
+        foreach($data as $item) {
+            $array[] = array(
+                'nama' => $item->nama, 
+                'nrp' => $item->nrp,
+                'pilihan_satu' => $item->pilihan_satu, 
+                'alasan_pilihan_satu' => $item->alasan_pilihan_satu, 
+                'pilihan_dua' => $item->pilihan_dua, 
+                'alasan_pilihan_dua' => $item->alasan_pilihan_dua, 
+                'pilihan_tiga' => $item->pilihan_tiga, 
+                'alasan_pilihan_tiga' => $item->alasan_pilihan_tiga);
+        }
+
+        Excel::create('Pendaftar', function($excel) use ($array){
+            $excel->setTitle('Pendaftar');
+            $excel->sheet('Pendaftar', function($sheet) use ($array)
+            {
+                $sheet->fromArray($array, null, 'A1', false, false);
+            });
+        })->download('xlsx');
     }
 }

@@ -21,7 +21,8 @@ Route::get('/login', 'HomeController@login');
 
 Route::get('/oprek/daftar', function () 
 {
-    return view('oprek.index');
+    return view('oprek.prank');
+    //return view('oprek.index')
 });
 
 Route::get('/oprek', function () 
@@ -30,6 +31,30 @@ Route::get('/oprek', function ()
 });
 
 Route::get('/oprek/hasil', 'FormWebOprecController@showResult');
+Route::get('/oprek/hasil/remove/{id}', 'FormWebOprecController@destroy');
+Route::get('/oprek/hasil/excel', 'FormWebOprecController@excel')->name('oprek.hasil.excel');
 
 Route::post('FormOprec','FormWebOprecController@store');
 Route::post('LoginPH','HomeController@loginPost');
+
+Route::get('storage/{filename}', function ($filename)
+{
+    $path = storage_path('public/' . $filename);
+
+    if (!File::exists($path)) {
+        abort(404);
+    }
+
+    $file = File::get($path);
+    $type = File::mimeType($path);
+
+    $response = Response::make($file, 200);
+    $response->header("Content-Type", $type);
+
+    return $response;
+});
+
+Route::get('screening', function ()
+{
+    return Redirect::to("files/JADWAL_SCREENING_CALON_STAFF_HMTC_1819.pdf");
+});

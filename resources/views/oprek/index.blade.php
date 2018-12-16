@@ -12,6 +12,7 @@
     <div class="content" style="padding-top: 80px">
         <div class="container" style="padding-top: 40px; padding-bottom: 40px;">
             @include('layout.message')
+            <h3 class="text-white">Ayo masih bisa daftar kok</h3>
             <div class="justify-content-md-center">
                 <div class="card">
                     <div class="card-body">
@@ -57,7 +58,8 @@
                                         <option value="6">Departemen Media Informasi</option>
                                         <option value="7">Departemen Kesejahteraan Mahasiswa</option>
                                         <option value="8">Departemen Sosial Masyarakat</option>
-                                        <option value="9">Biro Kajian Strategis</option>
+                                        <option value="9">Departemen Minat Bakat</option>
+                                        <option value="10">Biro Kajian Strategis</option>
                                     </select>
                                 </div>
                                 <p id="deskripsidepartemen1" style="font-size: 16px;"></p>
@@ -81,7 +83,8 @@
                                         <option value="6">Departemen Media Informasi</option>
                                         <option value="7">Departemen Kesejahteraan Mahasiswa</option>
                                         <option value="8">Departemen Sosial Masyarakat</option>
-                                        <option value="9">Biro Kajian Strategis</option>
+                                        <option value="9">Departemen Minat Bakat</option>
+                                        <option value="10">Biro Kajian Strategis</option>
                                     </select>
                                 </div>
                                 <p id="deskripsidepartemen2" style="font-size: 16px;"></p>
@@ -105,7 +108,8 @@
                                         <option value="6">Departemen Media Informasi</option>
                                         <option value="7">Departemen Kesejahteraan Mahasiswa</option>
                                         <option value="8">Departemen Sosial Masyarakat</option>
-                                        <option value="9">Biro Kajian Strategis</option>
+                                        <option value="9">Departemen Minat Bakat</option>
+                                        <option value="10">Biro Kajian Strategis</option>
                                     </select>
                                 </div>
                                 <p id="deskripsidepartemen3" style="font-size: 16px;"></p>
@@ -122,7 +126,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Foto</label>
-                                <small id="emailHelp" class="text-muted">Format file .png atau .jpg dan foto formal</small>
+                                <small id="emailHelp" class="text-muted">Format file .png atau .jpg</small>
                                 <input type="file" name="file_foto">
                                 <span class="help-block text-danger">{{ $errors->first('file_foto') }}</span>
                             </div>
@@ -194,9 +198,13 @@
         } else if ($(this).val() == '6') {
             $('#deskripsidepartemen1').text("Departemen Media dan Informasi adalah ujung tombak HMTC dalam penyebaran informasi, serta sebagai wadah bagi mahasiswa informatika belajar dan menemukan hal baru dalam bidang media dan informasi");
         } else if ($(this).val() == '7') {
-            $('#deskripsidepartemen1').text("");
+            $('#deskripsidepartemen1').text("Departemen Kesejahteraan Mahasiswa atau Kesma bertujuan untuk menjaga dan meningkatkan well being seluruh warga HMTC melalui berbagai bidang seperti advokasi, akademik dan kesehatan.");
         } else if ($(this).val() == '8') {
-            $('#deskripsidepartemen1').text("");
+            $('#deskripsidepartemen1').text("Departemen Sosial Masyarakat HMTC adalah departemen yang mewadahi mahasiswa Informatika untuk mengabdi kepada masyarakat dengan kepedulian sosial dan aksi nyata.");
+        } else if ($(this).val() == '9') {
+            $('#deskripsidepartemen1').text("Departemen Minat dan Bakat adalah departemen dimana mahasiswa yang memiliki minat dan bakat non-akademik dapat menyalurkannya. Departemen ini memiliki beberapa klub di bidang non-akademik, seperti olahraga, games, kewirausahaan, dll.");
+        } else if ($(this).val() == '10') {
+            $('#deskripsidepartemen1').text("Kajian Strategis atau yang bisa disebut sebagai Kastrat adalah sebuah biro yang mengkaji berbagai isu-isu yang berkembang di dunia IT, ITS, dan juga nasional yang berbasis dari data.");
         } 
 
         if ($(this).val() == '6') {
@@ -220,9 +228,13 @@
         } else if ($(this).val() == '6') {
             $('#deskripsidepartemen2').text("Departemen Media dan Informasi adalah ujung tombak HMTC dalam penyebaran informasi, serta sebagai wadah bagi mahasiswa informatika belajar dan menemukan hal baru dalam bidang media dan informasi");
         } else if ($(this).val() == '7') {
-            $('#deskripsidepartemen2').text("");
+            $('#deskripsidepartemen2').text("Departemen Kesejahteraan Mahasiswa atau Kesma bertujuan untuk menjaga dan meningkatkan well being seluruh warga HMTC melalui berbagai bidang seperti advokasi, akademik dan kesehatan.");
         } else if ($(this).val() == '8') {
-            $('#deskripsidepartemen2').text("");
+            $('#deskripsidepartemen2').text("Departemen Sosial Masyarakat HMTC adalah departemen yang mewadahi mahasiswa Informatika untuk mengabdi kepada masyarakat dengan kepedulian sosial dan aksi nyata.");
+        } else if ($(this).val() == '9') {
+            $('#deskripsidepartemen2').text("Departemen Minat dan Bakat adalah departemen dimana mahasiswa yang memiliki minat dan bakat non-akademik dapat menyalurkannya. Departemen ini memiliki beberapa klub di bidang non-akademik, seperti olahraga, games, kewirausahaan, dll.");
+        } else if ($(this).val() == '10') {
+            $('#deskripsidepartemen2').text("Kajian Strategis atau yang bisa disebut sebagai Kastrat adalah sebuah biro yang mengkaji berbagai isu-isu yang berkembang di dunia IT, ITS, dan juga nasional yang berbasis dari data.");
         } 
 
         if ($(this).val() == '6') {
@@ -246,9 +258,13 @@
         } else if ($(this).val() == '6') {
             $('#deskripsidepartemen3').text("Departemen Media dan Informasi adalah ujung tombak HMTC dalam penyebaran informasi, serta sebagai wadah bagi mahasiswa informatika belajar dan menemukan hal baru dalam bidang media dan informasi");
         } else if ($(this).val() == '7') {
-            $('#deskripsidepartemen3').text("");
+            $('#deskripsidepartemen3').text("Departemen Kesejahteraan Mahasiswa atau Kesma bertujuan untuk menjaga dan meningkatkan well being seluruh warga HMTC melalui berbagai bidang seperti advokasi, akademik dan kesehatan.");
         } else if ($(this).val() == '8') {
-            $('#deskripsidepartemen3').text("");
+            $('#deskripsidepartemen3').text("Departemen Sosial Masyarakat HMTC adalah departemen yang mewadahi mahasiswa Informatika untuk mengabdi kepada masyarakat dengan kepedulian sosial dan aksi nyata.");
+        } else if ($(this).val() == '9') {
+            $('#deskripsidepartemen3').text("Departemen Minat dan Bakat adalah departemen dimana mahasiswa yang memiliki minat dan bakat non-akademik dapat menyalurkannya. Departemen ini memiliki beberapa klub di bidang non-akademik, seperti olahraga, games, kewirausahaan, dll.");
+        } else if ($(this).val() == '10') {
+            $('#deskripsidepartemen3').text("Kajian Strategis atau yang bisa disebut sebagai Kastrat adalah sebuah biro yang mengkaji berbagai isu-isu yang berkembang di dunia IT, ITS, dan juga nasional yang berbasis dari data.");
         } 
 
         if ($(this).val() == '6') {
