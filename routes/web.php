@@ -1,6 +1,7 @@
 <?php
 
 use function foo\func;
+use App\Http\Controllers\ResultController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,9 +31,12 @@ Route::get('/oprek/test', function ()
     return view('oprek.index');
 });
 
-Route::get('/oprek/hasil', 'FormWebOprecController@showResult');
-Route::get('/oprek/hasil/remove/{id}', 'FormWebOprecController@destroy');
-Route::get('/oprek/hasil/excel', 'FormWebOprecController@excel')->name('oprek.hasil.excel');
+Route::get('/oprek/hasil', 'OprekController@showResult');
+Route::get('/oprek/hasil/remove/{id}', 'OprekController@destroy');
+Route::get('/oprek/hasil/excel', 'OprekController@excel')->name('oprek.hasil.excel');
+
+Route::get('hasil', 'ResultController@snmptn');
+Route::get('hasil/dashboard', 'ResultController@dashboard');
 
 Route::get('storage/{filename}', function ($filename)
 {
@@ -56,7 +60,8 @@ Route::get('screening', function ()
     return Redirect::to("files/JADWAL_SCREENING_CALON_STAFF_HMTC_1819.pdf");
 });
 
-Route::post('FormOprec','FormWebOprecController@store');
+Route::post('FormOprec','OprekController@store');
 Route::post('LoginPH','HomeController@loginPost');
+Route::post('SNMPTN', 'ResultController@loadResult');
 
-Route::post('Catch/{id}', 'FormWebOprecController@update');
+Route::post('Catch/{id}', 'OprekController@update');

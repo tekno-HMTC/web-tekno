@@ -116,7 +116,7 @@
                             </form>                                
                             @else
                             <div class="form-group mb-0">
-                                <button id="battleroyale" type="submit" class="btn btn-secondary" style="width: 100%;" disabled>{{$row->departemen}}</button>
+                                <button id="battleroyale" type="submit" class="btn btn-secondary" style="width: 100%;" disabled>Diambil {{ $row->departemen_nama }}</button>
                             </div>
                             @endif
                         </td>
@@ -160,7 +160,7 @@
                             </form>                                
                             @else
                             <div class="form-group mb-0">
-                                <button id="battleroyale" type="submit" class="btn btn-secondary" style="width: 100%;" disabled>{{$row->departemen}}</button>
+                                <button id="battleroyale" type="submit" class="btn btn-secondary" style="width: 100%;" disabled>Diambil {{ $row->departemen_nama }}</button>
                             </div>
                             @endif
                         </td>
@@ -204,7 +204,7 @@
                             </form>                                
                             @else
                             <div class="form-group mb-0">
-                                <button id="battleroyale" type="submit" class="btn btn-secondary" style="width: 100%;" disabled>{{$row->departemen}}</button>
+                                <button id="battleroyale" type="submit" class="btn btn-secondary" style="width: 100%;" disabled> Diambil {{ $row->departemen_nama }}</button>
                             </div>
                             @endif
                         </td>
@@ -234,41 +234,6 @@
     $(document).ready(function () {
         $('#pilihan-3').DataTable();
     });
-
-    var dept = $('#battleroyale').text();
-    console.log(dept);
-    switch (dept) { 
-        case '1': 
-            $('#battleroyale').text("Taken by Tekno")
-            break;
-        case '2': 
-            $('#battleroyale').text("Taken by Dagri")
-            break;
-        case '3': 
-            $('#battleroyale').text("Taken by Hublu")
-            break;
-        case '4': 
-            $('#battleroyale').text("Taken by KDPM")
-            break;
-        case '5': 
-            $('#battleroyale').text("Taken by Pengpro")
-            break;
-        case '6': 
-            $('#battleroyale').text("Taken by Medfo")
-            break;
-        case '7': 
-            $('#battleroyale').text("Taken by Kesma")
-            break;
-        case '8': 
-            $('#battleroyale').text("Taken by Sosmas")
-            break;
-        case '9': 
-            $('#battleroyale').text("Taken by MB")
-            break;
-        case '10': 
-            $('#battleroyale').text("Taken by Kastrat")
-            break;
-    }
     
 </script>
 

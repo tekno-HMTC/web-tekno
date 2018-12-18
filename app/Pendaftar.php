@@ -24,6 +24,7 @@ class Pendaftar extends Model
       'portofolio',
       'file_transkrip',
       'status',
-      'departemen'
+      'departemen',
+      'departemen_nama'
   ];
 }

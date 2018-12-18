@@ -9,7 +9,7 @@ use App\Pendaftar;
 use App\PengurusHarian;
 use Excel;
 
-class FormWebOprecController extends Controller
+class OprekController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -86,6 +86,7 @@ class FormWebOprecController extends Controller
         $pendaftar->file_transkrip = $request->file('file_transkrip')->store('public/files');
         $pendaftar->status = false;
         $pendaftar->departemen = 0;
+        $pendaftar->departemen_nama = '';
         
         if ($request->file('portofolio') != null) {
             $pendaftar->portofolio = $request->file('portofolio')->store('public/files');
@@ -167,7 +168,7 @@ class FormWebOprecController extends Controller
     {
         DB::table('pendaftar')
             ->where('nrp', $id)
-            ->update(['status' => 1, 'departemen' => Session::get('id')]);
+            ->update(['status' => 1, 'departemen' => Session::get('id'), 'departemen_nama' => Session::get('departemen')]);
 
         return redirect('oprek/hasil');
     }
