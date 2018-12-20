@@ -15,7 +15,7 @@ class HomeController extends Controller
             return redirect('login')->with('alert', 'Ea');
         }
         else {
-            return view('oprek/hasil');
+            return view('staff');
         }
     }
 
@@ -35,7 +35,7 @@ class HomeController extends Controller
                 Session::put('departemen', $data->departemen);
                 Session::put('login', TRUE);
 
-                return redirect('oprek/hasil');
+                return redirect('staff');
             }
             else {
                 return redirect('login')->with('alert','Invalid kredensial');

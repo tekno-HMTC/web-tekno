@@ -31,12 +31,12 @@ Route::get('/oprek/test', function ()
     return view('oprek.index');
 });
 
-Route::get('/oprek/hasil', 'OprekController@showResult');
-Route::get('/oprek/hasil/remove/{id}', 'OprekController@destroy');
-Route::get('/oprek/hasil/excel', 'OprekController@excel')->name('oprek.hasil.excel');
+Route::get('/staff', 'OprekController@showResult');
+Route::get('/staff/excel', 'OprekController@excel')->name('staff.excel');
 
 Route::get('hasil', 'ResultController@snmptn');
 Route::get('hasil/dashboard', 'ResultController@dashboard');
+Route::get('ganen', 'ResultController@ganen');
 
 Route::get('storage/{filename}', function ($filename)
 {
@@ -63,5 +63,4 @@ Route::get('screening', function ()
 Route::post('FormOprec','OprekController@store');
 Route::post('LoginPH','HomeController@loginPost');
 Route::post('SNMPTN', 'ResultController@loadResult');
-
-Route::post('Catch/{id}', 'OprekController@update');
+Route::post('Inject', 'ResultController@inject');

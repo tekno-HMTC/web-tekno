@@ -119,14 +119,10 @@ class OprekController extends Controller
             $departemenID = Session::get('id');
 
             if ($departemenID != 11) {
-                $pendaftar_pilihan_satu = DB::table('pendaftar')->where('pilihan_satu', $departemenID)->get();
-                $pendaftar_pilihan_dua = DB::table('pendaftar')->where('pilihan_dua', $departemenID)->get();
-                $pendaftar_pilihan_tiga = DB::table('pendaftar')->where('pilihan_tiga', $departemenID)->get();
-    
+                $staff = DB::table('pendaftar')->where('departemen', $departemenID)->get();
+                
                 $rows = [
-                    'rows1' => $pendaftar_pilihan_satu,
-                    'rows2' => $pendaftar_pilihan_dua,
-                    'rows3' => $pendaftar_pilihan_tiga
+                    'rows1' => $staff
                   ];
     
                 return view('oprek.home')->with('rows', $rows);
@@ -168,7 +164,7 @@ class OprekController extends Controller
     {
         DB::table('pendaftar')
             ->where('nrp', $id)
-            ->update(['status' => 1, 'departemen' => Session::get('id'), 'departemen_nama' => Session::get('departemen')]);
+            ->update(['status' => 1, 'departemen' => Session::get('id')]);
 
         return redirect('oprek/hasil');
     }
