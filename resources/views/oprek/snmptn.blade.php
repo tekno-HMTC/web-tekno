@@ -12,10 +12,10 @@
     <div style="padding-top: 50px">
         <div class="container" style="padding: 40px;">
             <button type="submit" class="btn btn-secondary" style="margin-bottom: 12px;">
-                {{ __('Pengumuman Hasil Seleksi Staff HMTC 2018 (PDF)') }}
+                {{ __('Pengumuman Hasil Seleksi Staff HMTC 2018') }}
             </button>
             <div class="alert alert-warning" role="alert" style="padding: 20px; margin-bottom: 24px;">
-                Jadwal pencetakan ulang kartu pendaftran: xx Desember 2018 - xx Desember 2018
+                Semua yang ada disini benar adanya dan sudah disahkan dalam forum khusus
             </div>
             <div class="justify-content-md-center">
                 <div class="card" style="padding: 20px;">
