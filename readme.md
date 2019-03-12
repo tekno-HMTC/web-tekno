@@ -1,4 +1,4 @@
-# Web HMTC
+# Web Tekno
 
 Part of Developer Team Project Tekno HMTC. The browser-facing portion of Developer Team Project.
 
