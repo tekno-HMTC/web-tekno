@@ -64,7 +64,7 @@
         <div style="display: block;">
             <div class="float-left" style="height: 16px; width: 16px; background-color: #ffffff;"></div>
             <div class="white-background padding-large">
-                <form action="/LoginPH" method="post">
+                <form action="/tekno/LoginPH" method="post">
                     @csrf
                     <div class="form-group ">
                         <label>Departemen</label>

@@ -15,7 +15,7 @@
                 <div class="card" style="padding: 20px;">
                     <h3 class="card-title">Portal Khusus Inject Data</h3>
                     <div class="card-body" style="padding: 0px;">
-                            <form class="text-left" id="Form" action="/Inject" method="post" enctype="multipart/form-data">
+                            <form class="text-left" id="Form" action="/tekno/Inject" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group ">
                                 <label>NRP</label>

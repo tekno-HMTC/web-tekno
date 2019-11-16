@@ -13,9 +13,10 @@
         <div class="container" style="padding-top: 40px; padding-bottom: 40px;">
             @include('layout.message')
             <div class="justify-content-md-center">
-                <div class="card">
+                <div class="card" style="padding: 20px">
+                    <h3 class="card-title" style="padding-left: 20px; text-align: left;">Form Pendaftaran Staff Magang HMTC</h3>
                     <div class="card-body">
-                        <form class="text-left" id="Form" action="/FormOprec" method="post" enctype="multipart/form-data"
+                        <form class="text-left" id="Form" action="/tekno/FormOprec" method="post" enctype="multipart/form-data"
                             onsubmit="return confirm('Do you really want to submit the form?');">
                             @csrf
                             <div class="card bg-warning text-center" style="margin-bottom:12px;">

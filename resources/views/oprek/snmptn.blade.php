@@ -21,7 +21,7 @@
                 <div class="card" style="padding: 20px;">
                     <h3 class="card-title">Masukkan Nomor Pendaftaran Staff HMTC</h3>
                     <div class="card-body" style="padding: 0px;">
-                            <form class="text-left" id="Form" action="/SNMPTN" method="post" enctype="multipart/form-data"
+                            <form class="text-left" id="Form" action="/tekno/SNMPTN" method="post" enctype="multipart/form-data"
                             onsubmit="return confirm('Apa anda yakin?');">
                             @csrf
                             <div class="form-group ">
