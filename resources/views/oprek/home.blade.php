@@ -52,7 +52,6 @@
             </div>
         </div>
     </div>
-    <a href="{{ Route('staff.excel') }}" class="btn btn-secondary">Export ke Excel</a>
     <div class="container-fluid">
         <div style="margin-bottom: 16px;">
             <div style="display: inline-block;">
