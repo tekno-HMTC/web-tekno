@@ -18,6 +18,7 @@
         box-shadow: -1px 9px 40px -12px rgba(0, 0, 0, 0.75);
     }
 </style>
+<link rel="stylesheet" href="{{ asset('css/oprek.css') }}">
 @endsection
 
 @section('body')
