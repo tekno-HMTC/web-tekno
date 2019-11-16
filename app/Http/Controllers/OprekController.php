@@ -45,6 +45,7 @@ class OprekController extends Controller
             'pilihan_satu' => 'required',
             'pilihan_dua' => 'required',
             'alasan_pilihan_satu' => 'required',
+            'alasan_pilihan_dua' => 'required',
             'file_foto' => 'required',
             'file_cv' => 'required',
         ]);

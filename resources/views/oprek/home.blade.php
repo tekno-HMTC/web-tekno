@@ -63,6 +63,7 @@
                     <tr>
                         <th>Nama</th>
                         <th>NRP</th>
+                        <th>Alasan Pilihan 1</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -71,6 +72,7 @@
                     <tr>
                         <td>{{ $row->nama }}</td>
                         <td>{{ $row->nrp }}</td>
+                        <td>{{ $row->alasan_pilihan_satu }}</td>
                         <td>
                             <a href="{{ $row->file_foto }}" class="btn btn-secondary">Foto</a>
                             <a href="{{ $row->file_cv }}" class="btn btn-secondary">CV</a>
@@ -94,6 +96,7 @@
                     <tr>
                         <th>Nama</th>
                         <th>NRP</th>
+                        <th>Alasan Pilihan 2</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -102,6 +105,7 @@
                     <tr>
                         <td>{{ $row->nama }}</td>
                         <td>{{ $row->nrp }}</td>
+                        <td>{{ $row->alasan_pilihan_dua }}</td>
                         <td>
                             <a href="{{ $row->file_foto }}" class="btn btn-secondary">Foto</a>
                             <a href="{{ $row->file_cv }}" class="btn btn-secondary">CV</a>
