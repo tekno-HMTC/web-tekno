@@ -71,7 +71,7 @@ class OprekController extends Controller
 
         $pendaftar->save();
 
-        return redirect('/oprek/daftar')->with('success','Terima kasih telah mendaftar menjadi staf magang HMTC Garang! Ditunggu kabar selanjutnya ya');
+        return redirect('/tekno/magang')->with('success','Terima kasih telah mendaftar menjadi staf magang HMTC Garang! Ditunggu kabar selanjutnya ya');
     }
 
     /**
