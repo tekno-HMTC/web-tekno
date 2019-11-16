@@ -18,6 +18,9 @@
                         <form class="text-left" id="Form" action="/FormOprec" method="post" enctype="multipart/form-data"
                             onsubmit="return confirm('Do you really want to submit the form?');">
                             @csrf
+                            <div class="card bg-warning text-center" style="margin-bottom:12px;">
+                                <label class="bg-warning" style="margin:0px; color: white;">Form Data Diri</label>
+                            </div>
                             <div class="form-group ">
                                 <label>Nama</label>
                                 <input name="nama" type="text" class="form-control" required>
@@ -35,13 +38,9 @@
                                 </div>
                                 <small id="emailHelp" class="form-text text-muted">Masukkan 4 angka belakang NRP</small>
                             </div>
-                            <div class="card bg-warning text-center">
-                                <label class="bg-warning" style="margin:0px; color: white;">Pilih Urut Berdasarkan Minat Pendaftar</label>
+                            <div class="card bg-warning text-center" style="margin-bottom:12px;">
+                                <label class="bg-warning" style="margin:0px; color: white;">Form Departemen Pilihan Pertama</label>
                             </div>
-                            <select class="form-control mr-sm-2" onchange="pindahTab()" id="selectPilihan" style="margin-top:8px">
-                                <option value="1">Pilihan 1</option>
-                                <option value="2">Pilihan 2</option>
-                            </select>
                             <div id="pilihan1" style="display:block">
                                 <div class="form-group">
                                     <label>Departemen Pilihan Pertama</label>
@@ -66,8 +65,18 @@
                                     <textarea name="alasan_pilihan_satu" class="form-control" id="exampleFormControlTextarea1"
                                         rows="3" required></textarea>
                                 </div>
+                                <div id="portofolioPilihan1" style="display: none;">
+                                    <div class="form-group ">
+                                        <label>Portofolio</label>
+                                        <input name="portofolio_pilihan_1" type="text" class="form-control">
+                                        <small id="portoHelp" class="form-text text-muted">Silahkan upload dimanapun dan salin link file disini (.zip)</small>
+                                    </div>
+                                </div>
                             </div>
-                            <div id="pilihan2" style="display:none">
+                            <div class="card bg-warning text-center" style="margin-bottom:12px;">
+                                <label class="bg-warning" style="margin:0px; color: white;">Form Departemen Pilihan Kedua</label>
+                            </div>
+                            <div id="pilihan2" style="display:block">
                                 <div class="form-group">
                                     <label>Departemen Pilihan Kedua</label>
                                     <select name="pilihan_dua" class="select-departemen form-control mr-sm-2" id="selectPilihan2"
@@ -91,6 +100,16 @@
                                     <textarea name="alasan_pilihan_dua" class="form-control" id="exampleFormControlTextarea1"
                                         rows="3"></textarea>
                                 </div>
+                                <div id="portofolioPilihan2" style="display: none;">
+                                    <div class="form-group ">
+                                        <label>Portofolio</label>
+                                        <input name="portofolio_pilihan_2" type="text" class="form-control">
+                                        <small id="portoHelp" class="form-text text-muted">Silahkan upload dimanapun dan salin link file disini (.zip)</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card bg-warning text-center" style="margin-bottom:12px;">
+                                <label class="bg-warning" style="margin:0px; color: white;">Form Kelengkapan Berkas</label>
                             </div>
                             <div class="form-group ">
                                 <label>Foto Ekspresif Pake Jaket Biru</label>
@@ -101,16 +120,6 @@
                                 <label>File CV</label>
                                 <input name="file_cv" type="text" class="form-control" required>
                                 <small id="cvHelp" class="form-text text-muted">Silahkan upload dimanapun dan salin link file disini (.pdf)</small>
-                            </div>
-                            <div id="portofolio" style="display: none;">
-                                <div class="card bg-warning text-center" style="margin-bottom: 16px;">
-                                    <label class="bg-warning" style="margin:0px; color: white;">Form Khusus Pilihan Departemen Media Informasi</label>
-                                </div>
-                                <div class="form-group ">
-                                    <label>Portofolio</label>
-                                    <input name="portofolio" type="text" class="form-control" required>
-                                    <small id="portoHelp" class="form-text text-muted">Silahkan upload dimanapun dan salin link file disini (.zip)</small>
-                                </div>
                             </div>
                             <div class="form-group mb-0">
                                 <button type="submit" class="btn btn-primary" style="width: 100%;">
@@ -161,9 +170,9 @@
         } 
 
         if ($(this).val() == '6') {
-            $('#portofolio').show();
+            $('#portofolioPilihan1').show();
         } else {
-            $('#portofolio').hide();
+            $('#portofolioPilihan1').hide();
         }
     })
 
@@ -191,9 +200,9 @@
         } 
 
         if ($(this).val() == '6') {
-            $('#portofolio').show();
+            $('#portofolioPilihan2').show();
         } else {
-            $('#portofolio').hide();
+            $('#portofolioPilihan2').hide();
         }
     })
 </script>

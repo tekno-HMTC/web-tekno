@@ -47,12 +47,13 @@ class OprekController extends Controller
             'alasan_pilihan_satu' => 'required',
             'file_foto' => 'required',
             'file_cv' => 'required',
-            'portofolio' => 'required',
         ]);
 
         if ($request->input('pilihan_satu') == $request->input('pilihan_dua')) {
             return redirect()->back()->with('error','Pilihan 1 dan 2 tidak boleh sama');
         }
+
+        $portofolio = $request->input('portofolio_pilihan_1') != null ? $request->input('portofolio_pilihan_1') : $request->input('portofolio_pilihan_2');
 
         $pendaftar = new Pendaftar;
         $pendaftar->nama = $request->input('nama');
@@ -66,12 +67,7 @@ class OprekController extends Controller
         $pendaftar->status = false;
         $pendaftar->departemen = 0;
         $pendaftar->departemen_nama = '';
-        
-        if ($request->input('portofolio') != null) {
-            $pendaftar->portofolio = $request->input('portofolio');
-        } else {
-            $pendaftar->portofolio = null;
-        }
+        $pendaftar->portofolio = $portofolio;
 
         $pendaftar->save();
 
