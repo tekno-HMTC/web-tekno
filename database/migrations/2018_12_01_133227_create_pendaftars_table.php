@@ -21,8 +21,6 @@ class CreatePendaftarsTable extends Migration
             $table->string('alasanPilihan1');
             $table->integer('pilihan2');
             $table->string('alasanPilihan2');
-            $table->integer('pilihan3');
-            $table->string('alasanPilihan3');
             $table->timestamps();
         });
     }

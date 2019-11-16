@@ -23,7 +23,7 @@
 @section('body')
 <div class="container">
     <div class="row" style="margin-top: 24px; margin-bottom: 24px;">
-        <div class="col-sm-3">
+    <div class="col-sm-3">
             <div class="stats card text-white" style="background-color: #002171;">
                 <div class="card-body">
                     <h3 class="card-title">
@@ -32,7 +32,21 @@
                         @endphp
                     </h3>
                     <p class="card-text">
-                        Total staff {{ Session::get('departemen') }}
+                        Pilihan 1 - {{ Session::get('departemen')}}
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="stats card text-white" style="background-color: #002171;">
+                <div class="card-body">
+                    <h3 class="card-title">
+                        @php
+                        echo count($rows['rows2'])
+                        @endphp
+                    </h3>
+                    <p class="card-text">
+                        Pilihan 2 - {{ Session::get('departemen')}}
                     </p>
                 </div>
             </div>
@@ -58,6 +72,37 @@
                     <tr>
                         <td>{{ $row->nama }}</td>
                         <td>{{ $row->nrp }}</td>
+                        <td>
+                            <a href="{{ Storage::url($row->file_foto) }}" class="btn btn-secondary">Foto</a>
+                            <a href="{{ Storage::url($row->file_cv) }}" class="btn btn-secondary">CV</a>
+                            @if (Session::get('id') == 6)
+                                <a href="{{ Storage::url($row->portofolio) }}" class="btn btn-secondary">Portofolio</a>
+                            @endif
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+
+        <div style="margin-bottom: 16px;">
+            <div style="display: inline-block;">
+                <span style="font-size: 20px; margin-right: 16px;">Pilihan
+                    2</span>
+            </div>
+            <table id="pilihan-2" class="table table-striped table-bordered" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Nama</th>
+                        <th>NRP</th>
+                        <th>Departemen</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($rows['rows2'] as $row)
+                    <tr>
+                        <td>{{ $row->nama }}</td>
+                        <td>{{ $row->nrp }}</td>
                         <td>{{ $row->departemen_nama }}</td>
                     </tr>
                     @endforeach
@@ -75,6 +120,10 @@
 <script>
     $(document).ready(function () {
         $('#pilihan-1').DataTable();
+    });
+
+    $(document).ready(function () {
+        $('#pilihan-2').DataTable();
     });
 </script>
 

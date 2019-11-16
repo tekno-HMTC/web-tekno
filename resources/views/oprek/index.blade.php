@@ -12,7 +12,6 @@
     <div class="content" style="padding-top: 80px">
         <div class="container" style="padding-top: 40px; padding-bottom: 40px;">
             @include('layout.message')
-            <h3 class="text-white">Ayo masih bisa daftar kok</h3>
             <div class="justify-content-md-center">
                 <div class="card">
                     <div class="card-body">
@@ -42,7 +41,6 @@
                             <select class="form-control mr-sm-2" onchange="pindahTab()" id="selectPilihan" style="margin-top:8px">
                                 <option value="1">Pilihan 1</option>
                                 <option value="2">Pilihan 2</option>
-                                <option value="3">Pilihan 3</option>
                             </select>
                             <div id="pilihan1" style="display:block">
                                 <div class="form-group">
@@ -94,38 +92,8 @@
                                         rows="3"></textarea>
                                 </div>
                             </div>
-                            <div id="pilihan3" style="display:none">
-                                <div class="form-group">
-                                    <label>Departemen Pilihan Ketiga</label>
-                                    <select name="pilihan_tiga" class="select-departemen form-control mr-sm-2" id="selectPilihan3"
-                                        onchange="tampilkanPenjelasan3()">
-                                        <option value="" style="display:none">Pilih Salah Satu</option>
-                                        <option value="1">Departemen Teknologi</option>
-                                        <option value="2">Departemen Dalam Negeri</option>
-                                        <option value="3">Departemen Hubungan Luar</option>
-                                        <option value="4">Departemen Kaderisasi dan Pemetaan</option>
-                                        <option value="5">Departemen Pengembangan Profesi</option>
-                                        <option value="6">Departemen Media Informasi</option>
-                                        <option value="7">Departemen Kesejahteraan Mahasiswa</option>
-                                        <option value="8">Departemen Sosial Masyarakat</option>
-                                        <option value="9">Departemen Minat Bakat</option>
-                                        <option value="10">Biro Kajian Strategis</option>
-                                    </select>
-                                </div>
-                                <p id="deskripsidepartemen3" style="font-size: 16px;"></p>
-                                <div class="form-group">
-                                    <label>Alasan Memilih Departemen Pilihan Ketiga</label>
-                                    <textarea name="alasan_pilihan_tiga" class="form-control" id="exampleFormControlTextarea1"
-                                        rows="3"></textarea>
-                                </div>
-                            </div>
-                            <div class="form-group ">
-                                <label>Link Post Line</label>
-                                <input name="post_line" type="text" class="form-control" required>
-                                <small id="emailHelp" class="form-text text-muted">Post harus public</small>
-                            </div>
                             <div class="form-group">
-                                <label>Foto</label>
+                                <label>Foto Ekspresif Pake Jaket Biru</label>
                                 <small id="emailHelp" class="text-muted">Format file .png atau .jpg</small>
                                 <input type="file" name="file_foto">
                                 <span class="help-block text-danger">{{ $errors->first('file_foto') }}</span>
@@ -135,18 +103,6 @@
                                 <small id="emailHelp" class="text-muted">Format file .pdf max 2MB</small>
                                 <input type="file" name="file_cv">
                                 <span class="help-block text-danger">{{ $errors->first('file_cv') }}</span>
-                            </div>
-                            <div class="form-group">
-                                <label>File MBTI</label>
-                                <small id="emailHelp" class="text-muted">Format file .pdf max 2MB</small>
-                                <input type="file" name="file_mbti">
-                                <span class="help-block text-danger">{{ $errors->first('file_mbti') }}</span>
-                            </div>
-                            <div class="form-group">
-                                <label>File Transkrip</label>
-                                <small id="emailHelp" class="text-muted">Format file .doc atau .docx max 2MB</small>
-                                <input type="file" name="file_transkrip">
-                                <span class="help-block text-danger">{{ $errors->first('file_transkrip') }}</span>
                             </div>
                             <div id="portofolio" style="display: none;">
                                 <div class="card bg-warning text-center" style="margin-bottom: 16px;">
@@ -235,36 +191,6 @@
             $('#deskripsidepartemen2').text("Departemen Minat dan Bakat adalah departemen dimana mahasiswa yang memiliki minat dan bakat non-akademik dapat menyalurkannya. Departemen ini memiliki beberapa klub di bidang non-akademik, seperti olahraga, games, kewirausahaan, dll.");
         } else if ($(this).val() == '10') {
             $('#deskripsidepartemen2').text("Kajian Strategis atau yang bisa disebut sebagai Kastrat adalah sebuah biro yang mengkaji berbagai isu-isu yang berkembang di dunia IT, ITS, dan juga nasional yang berbasis dari data.");
-        } 
-
-        if ($(this).val() == '6') {
-            $('#portofolio').show();
-        } else {
-            $('#portofolio').hide();
-        }
-    })
-
-    $('#selectPilihan3').on('change', function() {
-        if ($(this).val() == '1') {
-            $('#deskripsidepartemen3').text("Departemen Teknologi bertujuan untuk membangun komunitas yang inovatif dan memiliki semangat berkontribusi dalah pengembangan teknologi dan informasi khususnya di TC");
-        } else if ($(this).val() == '2') {
-            $('#deskripsidepartemen3').text("Departemen Dalam Negeri atau DAGRI adalah departemen yang menaungi anggota hmtc untuk menumbuhkan rasa peduli terhadap sesama sehingga tercipta suasana kekeluargaan dalam HMTC.");
-        } else if ($(this).val() == '3') {
-            $('#deskripsidepartemen3').text("Departemen Hubungan Luar adalah departemen yang menjadi jembatan di antara stakeholder-stakeholder HMTC seperti Ormawa ITS & Luar ITS, Perusahaan, Alumni,dan forum-forum Informatika di Indonesia, serta menyediakan informasi dan wadah mengenai jurusan Informatika ITS bagi teman-teman SMA/K/ Umum di seluruh Indonesia.");
-        } else if ($(this).val() == '4') {
-            $('#deskripsidepartemen3').text("KDPM atau Kaderisasi dan Pemetaan adalah departemen mulia yang bertanggung jawab atas pengembangan sumber daya manusia HMTC. KDPM mengurus langsung mahasiswa tahun pertama dalam proses adaptasi, penanaman nilai-nilai yang bermasyarakat, persiapan memasuki himpunan dan menjalankan fungsi pemetaan minat dan bakat.");
-        } else if ($(this).val() == '5') {
-            $('#deskripsidepartemen3').text("Departemen Pengembangan Profesi adalah salah satu departemen HMTC yang memfasilitasi warga HMTC di bidang softskill. Departemen ini ditujukan untuk mempersiapkan mahasiswa TC dalam memasuki dunia kerja. Departemen ini fokus pada pemgembangan mahasiswa tingkat 2, 3, dan 4.");
-        } else if ($(this).val() == '6') {
-            $('#deskripsidepartemen3').text("Departemen Media dan Informasi adalah ujung tombak HMTC dalam penyebaran informasi, serta sebagai wadah bagi mahasiswa informatika belajar dan menemukan hal baru dalam bidang media dan informasi");
-        } else if ($(this).val() == '7') {
-            $('#deskripsidepartemen3').text("Departemen Kesejahteraan Mahasiswa atau Kesma bertujuan untuk menjaga dan meningkatkan well being seluruh warga HMTC melalui berbagai bidang seperti advokasi, akademik dan kesehatan.");
-        } else if ($(this).val() == '8') {
-            $('#deskripsidepartemen3').text("Departemen Sosial Masyarakat HMTC adalah departemen yang mewadahi mahasiswa Informatika untuk mengabdi kepada masyarakat dengan kepedulian sosial dan aksi nyata.");
-        } else if ($(this).val() == '9') {
-            $('#deskripsidepartemen3').text("Departemen Minat dan Bakat adalah departemen dimana mahasiswa yang memiliki minat dan bakat non-akademik dapat menyalurkannya. Departemen ini memiliki beberapa klub di bidang non-akademik, seperti olahraga, games, kewirausahaan, dll.");
-        } else if ($(this).val() == '10') {
-            $('#deskripsidepartemen3').text("Kajian Strategis atau yang bisa disebut sebagai Kastrat adalah sebuah biro yang mengkaji berbagai isu-isu yang berkembang di dunia IT, ITS, dan juga nasional yang berbasis dari data.");
         } 
 
         if ($(this).val() == '6') {

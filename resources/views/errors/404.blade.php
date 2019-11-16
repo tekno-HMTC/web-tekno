@@ -58,12 +58,12 @@
 <div class="container-fluid" id="home" style="padding: 0;">
     <div class="display-middle">
         <div style="display: block;">
-            <span class="padding-large black-background wide float-left" style="font-size: 24px; margin-right: 16px;">COMING SOON</span>
+            <span class="padding-large black-background wide float-left" style="font-size: 24px; margin-right: 16px;">404 Not Found</span>
             <div class="float-right" style="height: 24px; width: 24px; background-color: #000a12;"></div>
         </div>
         <div style="display: block;">
             <div class="float-left" style="height: 16px; width: 16px; background-color: #ffffff;"></div>
-            <span class="padding-not-large white-background wide float-right" style="font-size: 12px; margin: 8px;">Created by Edwin & Ganen @Tekno-HMTC</span>
+            <span class="padding-not-large white-background wide float-right" style="font-size: 12px; margin: 8px;">Created by Ganen @Tekno-HMTC</span>
         </div>
     </div>
 </div>

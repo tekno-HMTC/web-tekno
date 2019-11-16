@@ -21,11 +21,8 @@ class CreatePendaftarMigration extends Migration
             $table->text('alasan_pilihan_satu');
             $table->smallInteger('pilihan_dua');
             $table->text('alasan_pilihan_dua');
-            $table->smallInteger('pilihan_tiga');
-            $table->text('alasan_pilihan_tiga');
             $table->string('file_foto', 255);
             $table->string('file_cv', 255);
-            $table->string('file_mbti', 255);
             $table->timestamps();
         });
     }

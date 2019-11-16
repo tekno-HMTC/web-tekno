@@ -63,7 +63,7 @@
         </div>
         <div style="display: block;">
             <div class="float-left" style="height: 16px; width: 16px; background-color: #ffffff;"></div>
-            <span class="padding-not-large white-background wide float-right" style="font-size: 12px; margin: 8px;">Created by Edwin & Ganen @Tekno-HMTC</span>
+            <span class="padding-not-large white-background wide float-right" style="font-size: 12px; margin: 8px;">Created by Ganen @Tekno-HMTC</span>
         </div>
     </div>
 </div>

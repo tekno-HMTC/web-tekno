@@ -22,20 +22,14 @@ Route::get('/login', 'HomeController@login');
 
 Route::get('/oprek/daftar', function () 
 {
-    return view('oprek.prank');
-    //return view('oprek.index')
-});
-
-Route::get('/oprek/test', function () 
-{
     return view('oprek.index');
 });
 
 Route::get('/staff', 'OprekController@showResult');
 Route::get('/staff/excel', 'OprekController@excel')->name('staff.excel');
 
-Route::get('hasil', 'ResultController@snmptn');
-Route::get('hasil/dashboard', 'ResultController@dashboard');
+//Route::get('hasil', 'ResultController@snmptn');
+//Route::get('hasil/dashboard', 'ResultController@dashboard');
 Route::get('ganen', 'ResultController@ganen');
 
 Route::get('storage/{filename}', function ($filename)

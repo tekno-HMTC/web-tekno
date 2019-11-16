@@ -45,29 +45,14 @@ class OprekController extends Controller
             'nrp' => 'required',
             'pilihan_satu' => 'required',
             'pilihan_dua' => 'required',
-            'pilihan_tiga' => 'required',
             'alasan_pilihan_satu' => 'required',
             'file_foto' => 'required|image|mimes:jpeg,png,gif,webp|max:2048',
             'file_cv' => 'required|mimes:pdf|max:2048',
-            'file_mbti' => 'required|mimes:pdf|max:2048',
-            'post_line' => 'required',
             'portofolio' => 'mimes:zip,txt|max:2048',
-            'file_transkrip.*' => 'required|mimes:doc,docx|max:2048'
         ]);
 
         if ($request->input('pilihan_satu') == $request->input('pilihan_dua')) {
-            // return redirect('/')->with('error','Pilihan 1 dan 2 tidak boleh sama');
             return redirect()->back()->with('error','Pilihan 1 dan 2 tidak boleh sama');
-        }
-
-        if ($request->input('pilihan_satu') == $request->input('pilihan_tiga')) {
-            // return redirect('/')->with('error','Pilihan 2 dan 3 tidak boleh sama');
-            return redirect()->back()->with('error','Pilihan 2 dan 3 tidak boleh sama');
-         }
-      
-        if ($request->input('pilihan_dua') == $request->input('pilihan_tiga') && $request->input('pilihan_tiga') != null) {
-            // return redirect('/')->with('error','Pilihan 2 dan 3 tidak boleh sama');
-            return redirect()->back()->with('error','Pilihan 2 dan 3 tidak boleh sama');
         }
 
         $pendaftar = new Pendaftar;
@@ -77,13 +62,8 @@ class OprekController extends Controller
         $pendaftar->alasan_pilihan_satu = $request->input('alasan_pilihan_satu');
         $pendaftar->pilihan_dua = $request->input('pilihan_dua');
         $pendaftar->alasan_pilihan_dua = $request->input('alasan_pilihan_dua');
-        $pendaftar->pilihan_tiga = $request->input('pilihan_tiga');
-        $pendaftar->alasan_pilihan_tiga = $request->input('alasan_pilihan_tiga');
         $pendaftar->file_foto = $request->file('file_foto')->store('public/files');
         $pendaftar->file_cv = $request->file('file_cv')->store('public/files');
-        $pendaftar->file_mbti = $request->file('file_mbti')->store('public/files');
-        $pendaftar->post_line = $request->input('post_line');
-        $pendaftar->file_transkrip = $request->file('file_transkrip')->store('public/files');
         $pendaftar->status = false;
         $pendaftar->departemen = 0;
         $pendaftar->departemen_nama = '';
@@ -96,7 +76,7 @@ class OprekController extends Controller
 
         $pendaftar->save();
 
-        return redirect('/oprek/daftar')->with('success','Hehe udah gitu aja sih :) Ditunggu kabar selanjutnya ya');
+        return redirect('/oprek/daftar')->with('success','Terima kasih telah mendaftar menjadi staf magang HMTC Garang! Ditunggu kabar selanjutnya ya');
     }
 
     /**
@@ -119,10 +99,12 @@ class OprekController extends Controller
             $departemenID = Session::get('id');
 
             if ($departemenID != 11) {
-                $staff = DB::table('pendaftar')->where('departemen', $departemenID)->get();
-                
+                $staff_pilihan_satu = DB::table('pendaftar')->where('pilihan_satu', $departemenID)->get();
+                $staff_pilihan_dua = DB::table('pendaftar')->where('pilihan_dua', $departemenID)->get();
+
                 $rows = [
-                    'rows1' => $staff
+                    'rows1' => $staff_pilihan_satu,
+                    'rows2' => $staff_pilihan_dua
                   ];
     
                 return view('oprek.home')->with('rows', $rows);
@@ -185,7 +167,7 @@ class OprekController extends Controller
     public function excel()
     {
         $data = DB::table('pendaftar')->orderBy('nrp', 'asc')->get()->toArray();
-        $array[] = array('nama', 'nrp', 'pilihan_satu', 'alasan_pilihan_satu', 'pilihan_dua', 'alasan_pilihan_dua', 'pilihan_tiga', 'alasan_pilihan_tiga');
+        $array[] = array('nama', 'nrp', 'pilihan_satu', 'alasan_pilihan_satu', 'pilihan_dua', 'alasan_pilihan_dua');
     
         foreach($data as $item) {
             $array[] = array(
@@ -194,9 +176,7 @@ class OprekController extends Controller
                 'pilihan_satu' => $item->pilihan_satu, 
                 'alasan_pilihan_satu' => $item->alasan_pilihan_satu, 
                 'pilihan_dua' => $item->pilihan_dua, 
-                'alasan_pilihan_dua' => $item->alasan_pilihan_dua, 
-                'pilihan_tiga' => $item->pilihan_tiga, 
-                'alasan_pilihan_tiga' => $item->alasan_pilihan_tiga);
+                'alasan_pilihan_dua' => $item->alasan_pilihan_dua);
         }
 
         Excel::create('Pendaftar', function($excel) use ($array){

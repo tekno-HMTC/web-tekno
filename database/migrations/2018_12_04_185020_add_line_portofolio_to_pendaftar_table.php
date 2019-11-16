@@ -14,7 +14,6 @@ class AddLinePortofolioToPendaftarTable extends Migration
     public function up()
     {
         Schema::table('pendaftar', function (Blueprint $table) {
-            $table->string('post_line', 255)->nullable();
             $table->string('portofolio', 255)->nullable();
         });
     }
