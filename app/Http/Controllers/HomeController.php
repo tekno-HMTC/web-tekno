@@ -15,7 +15,7 @@ class HomeController extends Controller
             return redirect('login')->with('alert', 'Ea');
         }
         else {
-            return view('staff');
+            return view('tekno/magang/dashboard');
         }
     }
 
@@ -35,7 +35,7 @@ class HomeController extends Controller
                 Session::put('departemen', $data->departemen);
                 Session::put('login', TRUE);
 
-                return redirect('staff');
+                return redirect('tekno/magang/dashboard');
             }
             else {
                 return redirect('login')->with('alert','Invalid kredensial');

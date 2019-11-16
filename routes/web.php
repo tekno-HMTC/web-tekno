@@ -20,12 +20,18 @@ Route::get('/', function () {
 
 Route::prefix('tekno')->group(function () {
     Route::get('login', 'HomeController@login');
-    Route::get('staff', 'OprekController@showResult');
-    Route::get('ganen', 'ResultController@ganen');
 
-    Route::get('magang', function () 
-    {
-        return view('oprek.index');
+    Route::prefix('magang')->group(function () {
+        Route::get('/', function () 
+        {
+            return view('oprek.index');
+        });
+
+        Route::get('dashboard', 'OprekController@showResult');
+        Route::get('ganen', 'ResultController@ganen');
+
+        Route::get('hasil', 'ResultController@snmptn');
+        Route::get('hasil/dashboard', 'ResultController@dashboard');
     });
 
     Route::post('FormOprec','OprekController@store');

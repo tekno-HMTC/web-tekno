@@ -32,7 +32,7 @@ class ResultController extends Controller
         Session::put('status', $data->status);
         Session::put('departemen', $data->departemen_nama);
 
-        return redirect('hasil/dashboard');
+        return redirect('magang/hasil/dashboard');
     }
 
     public function inject(Request $request)

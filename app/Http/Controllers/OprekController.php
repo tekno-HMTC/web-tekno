@@ -143,7 +143,7 @@ class OprekController extends Controller
             ->where('nrp', $id)
             ->update(['status' => 1, 'departemen' => Session::get('id')]);
 
-        return redirect('oprek/hasil');
+        return redirect('magang/hasil');
     }
 
     /**
@@ -156,6 +156,6 @@ class OprekController extends Controller
     {
         DB::table('pendaftar')->where('id', $id)->delete();
 
-        return redirect('oprek/hasil');
+        return redirect('magang/hasil');
     }
 }
