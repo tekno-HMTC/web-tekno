@@ -63,7 +63,7 @@
                     <tr>
                         <th>Nama</th>
                         <th>NRP</th>
-                        <th>Departemen</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -72,10 +72,10 @@
                         <td>{{ $row->nama }}</td>
                         <td>{{ $row->nrp }}</td>
                         <td>
-                            <a href="{{ Storage::url($row->file_foto) }}" class="btn btn-secondary">Foto</a>
-                            <a href="{{ Storage::url($row->file_cv) }}" class="btn btn-secondary">CV</a>
+                            <a href="{{ $row->file_foto }}" class="btn btn-secondary">Foto</a>
+                            <a href="{{ $row->file_cv }}" class="btn btn-secondary">CV</a>
                             @if (Session::get('id') == 6)
-                                <a href="{{ Storage::url($row->portofolio) }}" class="btn btn-secondary">Portofolio</a>
+                                <a href="{{ $row->portofolio }}" class="btn btn-secondary">Portofolio</a>
                             @endif
                         </td>
                     </tr>
@@ -94,7 +94,7 @@
                     <tr>
                         <th>Nama</th>
                         <th>NRP</th>
-                        <th>Departemen</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -102,7 +102,13 @@
                     <tr>
                         <td>{{ $row->nama }}</td>
                         <td>{{ $row->nrp }}</td>
-                        <td>{{ $row->departemen_nama }}</td>
+                        <td>
+                            <a href="{{ $row->file_foto }}" class="btn btn-secondary">Foto</a>
+                            <a href="{{ $row->file_cv }}" class="btn btn-secondary">CV</a>
+                            @if (Session::get('id') == 6)
+                                <a href="{{ $row->portofolio }}" class="btn btn-secondary">Portofolio</a>
+                            @endif
+                        </td>
                     </tr>
                     @endforeach
                 </tbody>

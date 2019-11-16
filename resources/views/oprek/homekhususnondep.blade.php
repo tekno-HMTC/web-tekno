@@ -32,7 +32,7 @@
                         @endphp
                     </h3>
                     <p class="card-text">
-                        Total pendaftar calon budak kupon dan teman-teman
+                        Total pendaftar staff magang HMTC
                     </p>
                 </div>
             </div>
@@ -48,7 +48,7 @@
                     <tr>
                         <th>Nama</th>
                         <th>NRP</th>
-                        <th>Departemen</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -57,7 +57,13 @@
                     <tr>
                         <td>{{ $row->nama }}</td>
                         <td>{{ $row->nrp }}</td>
-                        <td>{{ $row->departemen_nama }}</td>
+                        <td>
+                            <a href="{{ $row->file_foto }}" class="btn btn-secondary">Foto</a>
+                            <a href="{{ $row->file_cv }}" class="btn btn-secondary">CV</a>
+                            @if ($row->portofolio != null)
+                                <a href="{{ $row->portofolio }}" class="btn btn-secondary">Portofolio</a>
+                            @endif
+                        </td>
                     </tr>
                     @endforeach
                     @endif

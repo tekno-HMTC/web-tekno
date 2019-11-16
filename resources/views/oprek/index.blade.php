@@ -27,7 +27,7 @@
                                 <label class="text-left"> NRP</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
-                                        <div class="input-group-text">0511174000</div>
+                                        <div class="input-group-text">0511184000</div>
                                     </div>
                                     <input name="nrp" type="text" class="form-control" id="inlineFormInputGroup"
                                         placeholder="XXXX" maxlength="4" pattern="\d{4}" required>
@@ -92,27 +92,24 @@
                                         rows="3"></textarea>
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group ">
                                 <label>Foto Ekspresif Pake Jaket Biru</label>
-                                <small id="emailHelp" class="text-muted">Format file .png atau .jpg</small>
-                                <input type="file" name="file_foto">
-                                <span class="help-block text-danger">{{ $errors->first('file_foto') }}</span>
+                                <input name="file_foto" type="text" class="form-control" required>
+                                <small id="fotoHelp" class="form-text text-muted">Silahkan upload dimanapun dan salin link file disini (.png, .jpeg, .jpg)</small>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group ">
                                 <label>File CV</label>
-                                <small id="emailHelp" class="text-muted">Format file .pdf max 2MB</small>
-                                <input type="file" name="file_cv">
-                                <span class="help-block text-danger">{{ $errors->first('file_cv') }}</span>
+                                <input name="file_cv" type="text" class="form-control" required>
+                                <small id="cvHelp" class="form-text text-muted">Silahkan upload dimanapun dan salin link file disini (.pdf)</small>
                             </div>
                             <div id="portofolio" style="display: none;">
                                 <div class="card bg-warning text-center" style="margin-bottom: 16px;">
                                     <label class="bg-warning" style="margin:0px; color: white;">Form Khusus Pilihan Departemen Media Informasi</label>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group ">
                                     <label>Portofolio</label>
-                                    <small id="emailHelp" class="text-muted">Format file .zip max 2MB, jika lebih silahkan upload .txt berisi link file anda</small>
-                                    <input type="file" name="portofolio">
-                                    <span class="help-block text-danger">{{ $errors->first('portofolio') }}</span>
+                                    <input name="portofolio" type="text" class="form-control" required>
+                                    <small id="portoHelp" class="form-text text-muted">Silahkan upload dimanapun dan salin link file disini (.zip)</small>
                                 </div>
                             </div>
                             <div class="form-group mb-0">

@@ -45,9 +45,9 @@ class OprekController extends Controller
             'pilihan_satu' => 'required',
             'pilihan_dua' => 'required',
             'alasan_pilihan_satu' => 'required',
-            'file_foto' => 'required|image|mimes:jpeg,png,gif,webp|max:2048',
-            'file_cv' => 'required|mimes:pdf|max:2048',
-            'portofolio' => 'mimes:zip,txt|max:2048',
+            'file_foto' => 'required',
+            'file_cv' => 'required',
+            'portofolio' => 'required',
         ]);
 
         if ($request->input('pilihan_satu') == $request->input('pilihan_dua')) {
@@ -61,14 +61,14 @@ class OprekController extends Controller
         $pendaftar->alasan_pilihan_satu = $request->input('alasan_pilihan_satu');
         $pendaftar->pilihan_dua = $request->input('pilihan_dua');
         $pendaftar->alasan_pilihan_dua = $request->input('alasan_pilihan_dua');
-        $pendaftar->file_foto = $request->file('file_foto')->store('public/files');
-        $pendaftar->file_cv = $request->file('file_cv')->store('public/files');
+        $pendaftar->file_foto = $request->input('file_foto');
+        $pendaftar->file_cv = $request->input('file_cv');
         $pendaftar->status = false;
         $pendaftar->departemen = 0;
         $pendaftar->departemen_nama = '';
         
-        if ($request->file('portofolio') != null) {
-            $pendaftar->portofolio = $request->file('portofolio')->store('public/files');
+        if ($request->input('portofolio') != null) {
+            $pendaftar->portofolio = $request->input('portofolio');
         } else {
             $pendaftar->portofolio = null;
         }
