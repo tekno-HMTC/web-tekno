@@ -26,7 +26,6 @@ Route::get('/oprek/daftar', function ()
 });
 
 Route::get('/staff', 'OprekController@showResult');
-Route::get('/staff/excel', 'OprekController@excel')->name('staff.excel');
 
 //Route::get('hasil', 'ResultController@snmptn');
 //Route::get('hasil/dashboard', 'ResultController@dashboard');

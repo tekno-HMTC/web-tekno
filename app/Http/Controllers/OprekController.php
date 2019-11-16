@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
 use App\Pendaftar;
 use App\PengurusHarian;
-use Excel;
 
 class OprekController extends Controller
 {
@@ -162,29 +161,5 @@ class OprekController extends Controller
         DB::table('pendaftar')->where('id', $id)->delete();
 
         return redirect('oprek/hasil');
-    }
-
-    public function excel()
-    {
-        $data = DB::table('pendaftar')->orderBy('nrp', 'asc')->get()->toArray();
-        $array[] = array('nama', 'nrp', 'pilihan_satu', 'alasan_pilihan_satu', 'pilihan_dua', 'alasan_pilihan_dua');
-    
-        foreach($data as $item) {
-            $array[] = array(
-                'nama' => $item->nama, 
-                'nrp' => $item->nrp,
-                'pilihan_satu' => $item->pilihan_satu, 
-                'alasan_pilihan_satu' => $item->alasan_pilihan_satu, 
-                'pilihan_dua' => $item->pilihan_dua, 
-                'alasan_pilihan_dua' => $item->alasan_pilihan_dua);
-        }
-
-        Excel::create('Pendaftar', function($excel) use ($array){
-            $excel->setTitle('Pendaftar');
-            $excel->sheet('Pendaftar', function($sheet) use ($array)
-            {
-                $sheet->fromArray($array, null, 'A1', false, false);
-            });
-        })->download('xlsx');
     }
 }
