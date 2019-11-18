@@ -20,6 +20,10 @@ class Pendaftar extends Model
       'portofolio',
       'status',
       'departemen',
-      'departemen_nama'
+      'departemen_nama',
+      'question_dept_ngapain',
+      'question_dept_proker',
+      'question_dept_fungsionaris',
+      'question_magang_harapan'
   ];
 }

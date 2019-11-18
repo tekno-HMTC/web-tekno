@@ -1,6 +1,6 @@
 @extends('master')
 
-@section('title', 'Oprek')
+@section('title', 'Form Pendaftaran Staff Magang HMTC - ganen.moe')
 
 @section('css')
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
@@ -108,6 +108,29 @@
                                         <small id="portoHelp" class="form-text text-muted">Silahkan upload dimanapun dan salin link file disini (.zip)</small>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="card bg-warning text-center" style="margin-bottom:12px;">
+                                <label class="bg-warning" style="margin:0px; color: white;">Form Pertanyaan Seputar Departemen Pilihanmu</label>
+                            </div>
+                            <div class="form-group">
+                                <label>Apa saja yang kalian tau tentang departemen yang kalian pilih? Ngapain aja?</label>
+                                <textarea name="question_dept_ngapain" class="form-control" id="exampleFormControlTextarea1"
+                                    rows="3"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Proker-proker apa saja yang kalian tau tentang departemen yang kalian pilih?</label>
+                                <textarea name="question_dept_proker" class="form-control" id="exampleFormControlTextarea1"
+                                    rows="3"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Siapa saja fungsionaris yang kalian tau di departemen yang kalian pilih?</label>
+                                <textarea name="question_dept_fungsionaris" class="form-control" id="exampleFormControlTextarea1"
+                                    rows="3"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Apa yang kalian harapkan dari staff magang HMTC?</label>
+                                <textarea name="question_magang_harapan" class="form-control" id="exampleFormControlTextarea1"
+                                    rows="3"></textarea>
                             </div>
                             <div class="card bg-warning text-center" style="margin-bottom:12px;">
                                 <label class="bg-warning" style="margin:0px; color: white;">Form Kelengkapan Berkas</label>

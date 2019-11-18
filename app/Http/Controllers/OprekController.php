@@ -48,6 +48,10 @@ class OprekController extends Controller
             'alasan_pilihan_dua' => 'required',
             'file_foto' => 'required',
             'file_cv' => 'required',
+            'question_dept_ngapain' => 'required',
+            'question_dept_proker' => 'required',
+            'question_dept_fungsionaris' => 'required',
+            'question_magang_harapan' => 'required'
         ]);
 
         if ($request->input('pilihan_satu') == $request->input('pilihan_dua')) {
@@ -65,6 +69,10 @@ class OprekController extends Controller
         $pendaftar->alasan_pilihan_dua = $request->input('alasan_pilihan_dua');
         $pendaftar->file_foto = $request->input('file_foto');
         $pendaftar->file_cv = $request->input('file_cv');
+        $pendaftar->question_dept_ngapain = $request->input('question_dept_ngapain');
+        $pendaftar->question_dept_proker = $request->input('question_dept_proker');
+        $pendaftar->question_dept_fungsionaris = $request->input('question_dept_fungsionaris');
+        $pendaftar->question_magang_harapan = $request->input('question_magang_harapan');
         $pendaftar->status = false;
         $pendaftar->departemen = 0;
         $pendaftar->departemen_nama = '';
