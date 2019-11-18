@@ -68,7 +68,8 @@
                             <div class="content" style="display: none; text-align: left;">
                                 <p>1. {{ $row->question_dept_ngapain }}</p>
                                 <p>2. {{ $row->question_dept_proker }}</p>
-                                <p>2. {{ $row->question_dept_fungsionaris }}</p>
+                                <p>3. {{ $row->question_dept_fungsionaris }}</p>
+                                <p>4. {{ $row->question_magang_harapan }}</p>
                             </div>
                         </td>
                     </tr>
