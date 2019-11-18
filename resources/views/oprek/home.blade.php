@@ -113,6 +113,12 @@
                             @if (Session::get('id') == 6)
                                 <a href="{{ $row->portofolio }}" class="btn btn-secondary">Portofolio</a>
                             @endif
+                            <button type="button" class="collapsible btn btn-secondary">Expand Jawaban</button>
+                            <div class="content" style="display: none; text-align: left;">
+                                <p>1. {{ $row->question_dept_ngapain }}</p>
+                                <p>2. {{ $row->question_dept_proker }}</p>
+                                <p>2. {{ $row->question_dept_fungsionaris }}</p>
+                            </div>
                         </td>
                     </tr>
                     @endforeach
@@ -136,5 +142,23 @@
         $('#pilihan-2').DataTable();
     });
 </script>
+
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+</script>
+
 
 @endsection
