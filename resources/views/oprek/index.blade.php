@@ -16,6 +16,12 @@
                 <div class="card" style="padding: 20px">
                     <h3 class="card-title" style="padding-left: 20px; text-align: left;">Form Pendaftaran Staff Magang HMTC</h3>
                     <div class="card-body">
+                        <div class="alert alert-success" style="text-align: left;" role="alert">
+                            <h4 class="alert-heading">Informasi</h4>
+                            <p>Pengisian form maksimal hari Kamis, 21 November 2019. Silahkan isi setiap berkas dan pertanyaan dengan sebenar-benarnya.</p>
+                            <hr>
+                            <p class="mb-0">Jika ada masalah terkait staff magang atau info lebih lanjut silahkan kontak Deka C20 atau Vijay C21.</p>
+                        </div>
                         <form class="text-left" id="Form" action="/tekno/FormOprec" method="post" enctype="multipart/form-data"
                             onsubmit="return confirm('Do you really want to submit the form?');">
                             @csrf
