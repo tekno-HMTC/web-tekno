@@ -108,7 +108,8 @@ class OprekController extends Controller
 
                 $rows = [
                     'rows1' => $staff_pilihan_satu,
-                    'rows2' => $staff_pilihan_dua
+                    'rows2' => $staff_pilihan_dua,
+                    'dept' => self::deptName()
                   ];
     
                 return view('oprek.home')->with('rows', $rows);
@@ -116,7 +117,8 @@ class OprekController extends Controller
                 $pendaftar_total = DB::table('pendaftar')->get();
 
                 $rows = [
-                    'rows1' => $pendaftar_total
+                    'rows1' => $pendaftar_total,
+                    'dept' => self::deptName()
                 ];
 
                 return view('oprek.homekhususnondep')->with('rows', $rows);
@@ -166,5 +168,9 @@ class OprekController extends Controller
         DB::table('pendaftar')->where('id', $id)->delete();
 
         return redirect('magang/hasil');
+    }
+
+    private function deptName() {
+        return ['empty', 'Tekno', 'Dagri', 'Hublu', 'KDPM', 'Pengpro', 'Medfo', 'Kesma', 'Sosmas', 'MB', 'Kastrat'];
     }
 }

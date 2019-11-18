@@ -56,7 +56,7 @@
                     @if (count($rows['rows1']) > 0)
                     @foreach ($rows['rows1'] as $row)
                     <tr>
-                        <td>{{ $row->nama }}</td>
+                        <td>{{ $row->nama }} <span class="badge badge-secondary">{{ $rows['dept'][$row->pilihan_satu] }}</span> <span class="badge badge-secondary">{{ $rows['dept'][$row->pilihan_dua] }}</span></td>
                         <td>{{ $row->nrp }}</td>
                         <td>
                             <a href="{{ $row->file_foto }}" class="btn btn-secondary" target="_blank">Foto</a>
