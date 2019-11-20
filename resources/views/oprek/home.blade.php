@@ -80,6 +80,13 @@
                             @if (Session::get('id') == 6)
                                 <a href="{{ $row->portofolio }}" class="btn btn-secondary">Portofolio</a>
                             @endif
+                            <button type="button" class="collapsible btn btn-secondary">Expand Jawaban</button>
+                            <div class="content" style="display: none; text-align: left;">
+                                <p>1. {{ $row->question_dept_ngapain }}</p>
+                                <p>2. {{ $row->question_dept_proker }}</p>
+                                <p>3. {{ $row->question_dept_fungsionaris }}</p>
+                                <p>4. {{ $row->question_magang_harapan }}</p>
+                            </div>
                         </td>
                     </tr>
                     @endforeach
