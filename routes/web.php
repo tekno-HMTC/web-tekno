@@ -24,7 +24,7 @@ Route::prefix('tekno')->group(function () {
     Route::prefix('magang')->group(function () {
         Route::get('/', function () 
         {
-            return view('oprek.index');
+            return view('oprek.prank');
         });
 
         Route::get('dashboard', 'OprekController@showResult');

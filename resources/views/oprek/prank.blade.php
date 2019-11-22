@@ -1,6 +1,6 @@
 @extends('master')
 
-@section('title', 'Coming Soon')
+@section('title', 'Form Pendaftaran Staff Magang HMTC - ganen.moe')
 
 @section('css')
 <style>
@@ -58,12 +58,12 @@
 <div class="container-fluid" id="home" style="padding: 0;">
     <div class="display-middle">
         <div style="display: block;">
-            <span class="padding-large black-background wide float-left" style="font-size: 24px; margin-right: 16px;">SUDAH DITUTUP BOIS</span>
+            <span class="padding-large black-background wide float-left" style="font-size: 24px; margin-right: 16px;">PENDAFTARAN DITUTUP</span>
             <div class="float-right" style="height: 24px; width: 24px; background-color: #000a12;"></div>
         </div>
         <div style="display: block;">
             <div class="float-left" style="height: 16px; width: 16px; background-color: #ffffff;"></div>
-            <span class="padding-not-large white-background wide float-right" style="font-size: 12px; margin: 8px;">See you @HMTC-Garang</span>
+            <span class="padding-not-large white-background wide float-right" style="font-size: 12px; margin: 8px;">Ditunggu kabar selanjutnya guys!</span>
         </div>
     </div>
 </div>
